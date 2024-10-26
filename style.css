@@ -195,6 +195,7 @@ input[type="submit"]:hover {
     background-color: #45a049; /* This can be handled by Bootstrap's hover state */
 }
 
+/* products */
 
 footer {
     position: relative;
