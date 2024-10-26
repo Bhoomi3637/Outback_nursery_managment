@@ -226,6 +226,38 @@ input[type="submit"]:hover {
     background-color: #45a049; /* Darker green on hover */
 }
 
+/* registration */
+.main-bg {
+    background-image: url('Image/hero.jpg'); /* Change to your image path */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    filter: brightness(0.8); /* Slightly dim the background for better contrast */
+}
+
+.form-container {
+    /* width: 100%; */
+    width: 500px;
+    max-width: 600px; /* Limit the width of the form */
+    backdrop-filter: blur(5px); /* Add a blur effect behind the form */
+}
+
+.border {
+    border: 1px solid #4CAF50; /* Green border to match the plant theme */
+}
+
+.btn-success {
+    background-color: #4CAF50; /* Green button color */
+    border-color: #4CAF50; /* Green border color */
+}
+
+.btn-success:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
 
 footer {
     position: relative;
