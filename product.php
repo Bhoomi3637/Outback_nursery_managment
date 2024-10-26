@@ -60,7 +60,7 @@
                             <span>★★★★★</span> (1)
                         </div>
                         <div class="price">$39.98</div>
-                        <button class="btn btn-primary add-to-cart">Add To Cart</button>
+                        <button class="btn btn-primary add-to-cart"><a href="product_detail.php">View More</a> </button>
                     </div>
                 </div>
             </div>
@@ -75,7 +75,7 @@
                             <span>★★★☆☆</span> (7)
                         </div>
                         <div class="price">$24.98</div>
-                        <button class="btn btn-primary add-to-cart">Add To Cart</button>
+                        <button class="btn btn-primary add-to-cart"><a href="product_detail.php">View More</a> </button>
                     </div>
                 </div>
             </div>
@@ -90,7 +90,7 @@
                             <span>★★★★☆</span> (29)
                         </div>
                         <div class="price">$34.98</div>
-                        <button class="btn btn-primary add-to-cart">Add To Cart</button>
+                        <button class="btn btn-primary add-to-cart"><a href="product_detail.php">View More</a> </button>
                     </div>
                 </div>
             </div>
@@ -105,7 +105,7 @@
                             <span>★★☆☆☆</span> (3)
                         </div>
                         <div class="price">$20.98</div>
-                        <button class="btn btn-primary add-to-cart">Add To Cart</button>
+                        <button class="btn btn-primary add-to-cart"><a href="product_detail.php">View More</a> </button>
                     </div>
                 </div>
             </div>
@@ -120,7 +120,7 @@
                             <span>★★★★★</span> (15)
                         </div>
                         <div class="price">$42.99</div>
-                        <button class="btn btn-primary add-to-cart">Add To Cart</button>
+                        <button class="btn btn-primary add-to-cart"><a href="product_detail.php">View More</a> </button>
                     </div>
                 </div>
             </div>
@@ -135,7 +135,7 @@
                             <span>★★★★☆</span> (11)
                         </div>
                         <div class="price">$19.99</div>
-                        <button class="btn btn-primary add-to-cart">Add To Cart</button>
+                        <button class="btn btn-primary add-to-cart"><a href="product_detail.php">View More</a> </button>
                     </div>
                 </div>
             </div>
@@ -150,7 +150,7 @@
                             <span>★★★★☆</span> (8)
                         </div>
                         <div class="price">$55.00</div>
-                        <button class="btn btn-primary add-to-cart">Add To Cart</button>
+                        <button class="btn btn-primary add-to-cart"><a href="product_detail.php">View More</a> </button>
                     </div>
                 </div>
             </div>
@@ -165,7 +165,7 @@
                             <span>★★★★★</span> (20)
                         </div>
                         <div class="price">$17.49</div>
-                        <button class="btn btn-primary add-to-cart">Add To Cart</button>
+                        <button class="btn btn-primary add-to-cart"><a href="product_detail.php">View More</a> </button>
                     </div>
                 </div>
             </div>
@@ -180,7 +180,7 @@
                             <span>★★★☆☆</span> (6)
                         </div>
                         <div class="price">$29.99</div>
-                        <button class="btn btn-primary add-to-cart">Add To Cart</button>
+                        <button class="btn btn-primary add-to-cart"><a href="product_detail.php">View More</a> </button>
                     </div>
                 </div>
             </div>
@@ -195,7 +195,7 @@
                             <span>★★★★☆</span> (12)
                         </div>
                         <div class="price">$12.99</div>
-                        <button class="btn btn-primary add-to-cart">Add To Cart</button>
+                        <button class="btn btn-primary add-to-cart"><a href="product_detail.php">View More</a> </button>
                     </div>
                 </div>
             </div>
@@ -210,7 +210,7 @@
                             <span>★★★★★</span> (4)
                         </div>
                         <div class="price">$60.00</div>
-                        <button class="btn btn-primary add-to-cart">Add To Cart</button>
+                        <button class="btn btn-primary add-to-cart"><a href="product_detail.php">View More</a> </button>
                     </div>
                 </div>
             </div>
@@ -225,7 +225,7 @@
                             <span>★★★★★</span> (13)
                         </div>
                         <div class="price">$45.99</div>
-                        <button class="btn btn-primary add-to-cart">Add To Cart</button>
+                        <button class="btn btn-primary add-to-cart"><a href="product_detail.php">View More</a> </button>
                     </div>
                 </div>
             </div>
