@@ -9,8 +9,9 @@
 <body>
     <!-- Navigation -->
     <header>
-        <nav>
-            <ul>
+    <nav class= "navbar">
+        <a href="">logo</a>        
+         <ul>
             <li><a href="index.php">Home</a></li>
             <li><a href="product.php">Product</a></li>
                 <li><a href="#contact">Contact</a></li>

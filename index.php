@@ -27,6 +27,7 @@
         <div class="hero-content">
             <h1>Welcome to Outback Nursery</h1>
             <p>Your trusted source for quality plants and garden supplies</p>
+            <a href="" class="btn">Grab Your Happiness</a>
         </div>
     
         
