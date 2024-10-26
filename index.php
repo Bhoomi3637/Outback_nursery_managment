@@ -36,7 +36,7 @@
                         <a class="nav-link" href="product.php">Product</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="nav-link" href="contact.php">Contact</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link btn btn-outline-success login" href="login.php" >Login</a>
