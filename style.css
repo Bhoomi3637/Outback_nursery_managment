@@ -6,467 +6,207 @@ body {
     box-sizing: border-box;
 }
 
+/* Header */
+/* Style for the fixed header */
 header {
     background-color: #4CAF50;
     padding: 10px 0;
-    text-align: center;
     width: 100%;
     position: fixed;
+    height: 80px;
     top: 0;
-    left: 0;
-    z-index: 1000; /* Ensures it stays above other elements */
+    z-index: 1000;
 }
-a{
+
+/* Remove underline from all links */
+a {
     text-decoration: none;
 }
-/*-----navigation---*/
-.navbar{
+
+/* Navbar styling */
+.navbar {
     max-width: 1200px;
     margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+    /* height: 40px; */
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
+.navbar-brand {
     font-weight: bold;
+    color: white;
+    font-size: 1.5rem;
 }
 
-.login-btn {
-    background-color: #f0f0f0;
-    color: #4CAF50;
+.navbar-toggler {
+    border-color: white;
+}
+
+/* Custom navbar link styles */
+.nav-link {
+    color: white !important;
+    font-weight: bold;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #020202 !important;
+}
+
+/* Custom login button style */
+.login {
+    background-color: #f0f0f0 !important;
+    color: #4CAF50 !important;
     padding: 8px 15px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    font-weight: bold;
 }
 
-.login-btn:hover {
-    background-color: #ddd;
+.login:hover {
+    background-color: #ddd !important;
 }
 
 
 /* Hero Section */
+/* Hero section styling */
 .hero {
-    background-image: url(Image/hero.jpg);
+    background: url('Image/hero.jpg') no-repeat center center;
     background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 100%;
-    height: 50vh;
-    display: flex;
-    align-items: center; /* Centers content vertically */
-    justify-content: flex-start; /* Aligns content to the left */
-    padding-left: 50px; /* Adjust as needed to move content slightly to the left */
-    color: black;
+    min-height: 100vh;
+    color: rgb(15, 15, 15);
+    margin-top: 80px;
 }
 
-.hero-content {
-    
-max-width: 600px;
-margin-left: 50px; /* Optional: adjust width to control content area */
+.hero .container {
+    padding: 80px 20px;
 }
 
-.hero h1 {
-    font-size: 2.5em;
-    margin: 0; /* Remove default margins */
+/* Additional button styling */
+.btn-success {
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
 }
-
-.hero p {
-    font-size: 1.2em;
-    margin: 10px 0 30px 0;
-}
-
 
 
 /* Product Section */
 .products {
-    padding: 50px 0;
-    text-align: center;
-    background-color: #e9f9e9;
+    background-color: #f8f9fa; /* Light background */
 }
 
 .products h2 {
-    font-size: 2em;
-    margin-bottom: 40px;
+    color: #4CAF50; /* Match header color theme */
 }
 
-.product-list {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-}
-
-.product-item {
-    width: 200px;
-    padding: 20px;
-    background-color: white;
+.card {
+    border: none;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+.card img{
+    height: 350px;
 }
 
-.product-item img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 15px;
+.card:hover {
+    transform: scale(1.05);
 }
 
-.product-item h3 {
-    font-size: 1.3em;
-    margin-bottom: 10px;
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.card-text {
+    color: #555;
 }
 
 /* About Us Section */
-section.about-us {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
+.about-us {
+    background-color: #f8f9fa;
 }
 
-.about {
-    display: flex;
-    flex-direction: row;
-    gap: 20px; /* Space between image and content */
+.about-us h2 {
+    color: #4CAF50;
 }
 
-.about img {
-    width: 400px;
-    height: auto;
+.about-us p {
+    color: #555;
 }
 
-.about-content {
-    max-width: 600px; /* Adjust max-width as needed */
-}
-
-.about-content h2 {
-    font-size: 2em;
-    margin-bottom: 10px;
-}
-
-.about-content p {
-    max-width: 100%; /* This allows the paragraph to fill the available width within .about-content */
-    line-height: 1.6;
-    margin: 20px 40px;
-}
-.about-content a{
-    text-decoration: none;
-
-
-}
-.btn {
+.btn-success {
     background-color: #4CAF50;
-    color: white;
-    padding: 8px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #45a049;
 }
 
 
 /* Testimonials Section */
-.testimonial{
-    background-color: var(--clr-nuetral-light);
-  }
-  .testimonial__cards{
-    display: flex;
-  }
-  .max-width-testimonial{
-
-    text-align: center;
-  }
-  
-  .testimonial__card {
-    border-radius: 10px;
-    padding: 20px;
-    margin: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    background-color:white;
-    width: 300px;
-    margin: 2% 5% 2% 5%;
-  }
-  .testimonial__card p {
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 10px;
-  }
-  
-  .testimonial__card h3 {
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 10px;
-    color: #333;
-  }
-  .testimonial__card {
-    display: block;
-  }
-  /*------contact us----*/
-  .Contact{
-    background-image: url(Image/flowers.png);
-    background-size: cover;
-  }
-  .max-width-contact{
-    max-width: 1200px;
-    margin: 0;
-  }
- 
-  .contact-content form {
-   width: 500px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-   
-  }
-  
-  
-  input[type="text"],
-  input[type="email"],
-  textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    resize: none;
-  }
-  
-  textarea {
-    height: 100px;
-  }
-  
-  input[type="submit"] {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  input[type="submit"]:hover {
-    background-color: #45a049;
-  }
-
-/* Footer */
-footer {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    text-align: center;
+.testimonial {
+    background-color: #f8f9fa;
 }
 
-/* Login & Sign-Up Form Styles */
-.form-container {
-    background-color: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    margin: 50px auto;
-}
-
-h2 {
-    text-align: center;
+.testimonial h2 {
     color: #4CAF50;
 }
 
-.input-group {
-    margin: 20px 0;
+.testimonial__card p {
+    color: #555;
+    font-style: italic;
 }
 
-.input-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 8px;
-}
-
-.input-group input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1em;
-}
-
-button {
-    width: 100%;
-    padding: 20px;
-}
-/*----Product
-----------------*/
-.product-grid {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    padding: 20px;
-    flex-wrap: wrap;
-}
-
-.product-card {
-    background-color: #fff;
-    width: 250px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.product-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-    margin-bottom: 15px;
-}
-
-.product-card h3 {
-    font-size: 1em;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.model-sku {
-    font-size: 0.85em;
-    color: #777;
-    margin-bottom: 8px;
-}
-
-.rating {
-    font-size: 0.9em;
-    color: #f90;
-    margin-bottom: 10px;
-}
-
-.rating span {
-    font-size: 1.1em;
-}
-
-.price {
-    font-size: 1.4em;
-    color: #d9534f;
-    margin-bottom: 10px;
+.testimonial__card h3 {
+    color: #4CAF50;
     font-weight: bold;
 }
-
-.delivery, .stock {
-    font-size: 0.85em;
-    color: #333;
-    margin-bottom: 5px;
+.carousel-indicators button {
+    background-color: #4CAF50; /* Change indicator color */
+}
+.carousel-indicators .active {
+    background-color: #fff; /* Active indicator color */
 }
 
-.add-to-cart {
-    background-color: #d9534f;
-    color: white;
-    border: none;
-    padding: 10px;
-    font-size: 1em;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
+
+/* Contact Section */
+.contact {
+    background-image: url(Image/flowers.png);
+    background-size: cover;
+    padding: 20px 20px;
+    height: 750px; /* Keep this for section height */
+    display: flex; /* Add this */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.contact .container {
+    max-width: 700px; /* Set a max width for the container */
+    height: auto; /* Remove fixed height */
+}
+
+input[type="submit"] {
+    background-color: #4caf50; /* You can also use Bootstrap's btn-success for consistency */
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049; /* This can be handled by Bootstrap's hover state */
+}
+
+
+footer {
+    position: relative;
+    bottom: 0;
     width: 100%;
+    height: 100px; /* Maintain your height */
+    background-color: #45a049;
+    display: flex; /* Use flexbox to center items */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    flex-direction: column; /* Stack items vertically */
+    text-align: center; /* Center text */
 }
 
-.add-to-cart:hover {
-    background-color: #c9302c;
-}
 
-/* Add Plant Button Styles */
-.add-plant-button {
-    margin-left: auto; /* Push the button to the right */
-}
-
-.button {
-    background-color: #ff6600; /* Button background color */
-    color: white; /* Button text color */
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    text-decoration: none; /* Remove underline from link */
-    display: inline-block;
-}
-
-.button:hover {
-    background-color: #ff4500; /* Darker color on hover */
-}
-/* Admin Home Container Styles */
-.admin-home-container {
-    max-width: 600px; /* Maximum width for the form */
-    margin: 40px auto; /* Center the container */
-    padding: 20px;
-    background-color: white; /* White background for the form */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-/* Header Styles */
-.admin-home-container h1 {
-    text-align: center; /* Center the main heading */
-    color: #333; /* Dark gray color for the heading */
-    margin-bottom: 20px; /* Space below heading */
-}
-
-.admin-home-container h2 {
-    text-align: center; /* Center the subheading */
-    color: #666; /* Medium gray for the subheading */
-    margin-bottom: 20px; /* Space below subheading */
-}
-
-/* Form Styles */
-form {
-    display: flex;
-    flex-direction: column; /* Vertical layout for form elements */
-}
-
-label {
-    margin-bottom: 5px; /* Space below labels */
-    font-weight: bold; /* Bold font for labels */
-}
-
-input[type="text"],
-textarea,
-input[type="file"] {
-    padding: 10px; /* Padding inside input fields */
-    margin-bottom: 20px; /* Space below input fields */
-    border: 1px solid #ddd; /* Light gray border */
-    border-radius: 4px; /* Rounded corners */
-    font-size: 16px; /* Font size */
-}
-
-input[type="text"]:focus,
-textarea:focus {
-    border-color: #ff6600; /* Highlight border on focus */
-    outline: none; /* Remove outline */
-}
-
-/* Button Styles */
-.add-plant-btn {
-    background-color: #ff6600; /* Button background color */
-    color: white; /* Button text color */
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer; /* Pointer cursor on hover */
-    font-size: 16px; /* Font size */
-    transition: background-color 0.3s; /* Smooth transition */
-}
-
-.add-plant-btn:hover {
-    background-color: #ff4500; /* Darker color on hover */
-}

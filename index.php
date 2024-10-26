@@ -3,143 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<!-- Bootstrap JS (including Popper.js) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
     <title>Outback Nursery</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Navigation -->
     <header>
-    <nav class= "navbar">
-        <a href="">logo</a>        
-         <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="product.php">Product</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <!-- Added Login button -->
-                <li><a href="login.php" class="login-btn">Login</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <!-- Bootstrap logo using a brand element -->
+            <a class="navbar-brand" href="#">
+                Outback Nursery
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="product.php">Product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-success login" href="login.php" >Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero_max-width">
+    <section class="hero d-flex align-items-center">
+    <div class="container text-center">
         <div class="hero-content">
-            <h1>Welcome to Outback Nursery</h1>
-            <p>Your trusted source for quality plants and garden supplies</p>
-            <a href="" class="btn">Grab Your Happiness</a>
+            <h1 class="display-4">Welcome to Outback Nursery</h1>
+            <p class="lead">Your trusted source for quality plants and garden supplies</p>
+            <a href="#" class="btn btn-success btn-lg">Grab Your Happiness</a>
         </div>
-    
-        
-    </section>
+    </div>
+</section>
+
 
     <!-- Product Section -->
-    <section id="product" class="products">
-        <h2>Our Products</h2>
-        <div class="product-list">
-            <div class="product-item">
-                <img src="product1.jpg" alt="Product 1">
-                <h3>Product 1</h3>
-                <p>Description of product 1.</p>
+    <section id="product" class="products py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Our Products</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="image/plant1.jpeg" class="card-img-top" alt="Product 1">
+                    <div class="card-body text-center">
+                        <h3 class="card-title">Product 1</h3>
+                        <p class="card-text">Description of product 1.</p>
+                    </div>
+                </div>
             </div>
-            <div class="product-item">
-                <img src="product2.jpg" alt="Product 2">
-                <h3>Product 2</h3>
-                <p>Description of product 2.</p>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="image/plant1.jpeg"  class="card-img-top" alt="Product 2">
+                    <div class="card-body text-center">
+                        <h3 class="card-title">Product 2</h3>
+                        <p class="card-text">Description of product 2.</p>
+                    </div>
+                </div>
             </div>
-            <div class="product-item">
-                <img src="product3.jpg" alt="Product 3">
-                <h3>Product 3</h3>
-                <p>Description of product 3.</p>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="image/plant1.jpeg"  class="card-img-top" alt="Product 3">
+                    <div class="card-body text-center">
+                        <h3 class="card-title">Product 3</h3>
+                        <p class="card-text">Description of product 3.</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- About Us Section -->
-    <section id="about" class="about-us">
-        <div class="about">
-        <img src="Image/about-us2.jpg" alt="about us" width="400px">
-        <div class ="about-content">
-        <h2>Discover our Story</h2>
-        <p>Founded in 1998-1999 on Vancouver Island, Outback Nursery originated as a retreat from city living. Surrounded by dense forests, we nurtured plants and animals. Transitioning from Farmer's Market vending to serving wholesale and landscaping customers, we grew steadily. Through the incorporation of greenhouses and irrigation, our nursery prospered, transforming into a beloved community haven that honors the wonders of the natural world.</p>
-        <a href="" class="btn">Uncover Our Vision</a>
+    <section id="about" class="about-us py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="Image/about-us2.jpg" class="img-fluid rounded" alt="about us">
+            </div>
+            <div class="col-lg-6">
+                <h2 class="mb-4">Discover our Story</h2>
+                <p>Founded in 1998-1999 on Vancouver Island, Outback Nursery originated as a retreat from city living. Surrounded by dense forests, we nurtured plants and animals. Transitioning from Farmer's Market vending to serving wholesale and landscaping customers, we grew steadily. Through the incorporation of greenhouses and irrigation, our nursery prospered, transforming into a beloved community haven that honors the wonders of the natural world.</p>
+                <a href="#" class="btn btn-success mt-3">Uncover Our Vision</a>
+            </div>
+        </div>
     </div>
-</div>
-    </section>
+</section>
+
 
     <!-- Testimonial Section -->
-    <section class="testimonial">
-        <div class="max-width-testimonial">
-          <h2>What People say about us</h2>
-          <div class="testimonial">
-            <div class="testimonial__cards">
-              <div class="testimonial__card">
-                <p>
-                  "Outback Nursery is my top choice for plants. Their wide
-                  selection, expert advice, and serene atmosphere make every
-                  visit enjoyable. Highly recommend for anyone looking to
-                  enhance their garden!"
-                </p>
-                <h3>Bhoomi Patel</h3>
-              </div>
-              <div class="testimonial__card">
-                <p>
-                  "At Outback Nursery, stunning plants transform my home into a
-                  serene oasis, adding elegance and charm to create a refreshing
-                  atmosphere. With a wide variety of high-quality plants,
-                  Outback Nursery is my top choice for all things green and
-                  lovely!"
-                </p>
-                <h3>Alex</h3>
-              </div>
-              <div class="testimonial__card">
-                <p>
-                  ""At Outback Nursery, expert guidance enhanced my gardening
-                  skills, enriching my home with vibrant greenery. The
-                  knowledgeable staff provided invaluable advice on plant care,
-                  ensuring my indoor garden flourishes with Outback Nursery's
-                  beauty."
-                </p>
-                <h3>Micheal</h3>
-              </div>
+    <section id="testimonials" class="testimonial py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">What People Say About Us</h2>
+        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000"> <!-- Set to 10 seconds -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="testimonial__card p-4 text-center">
+                        <p>"Outback Nursery is my top choice for plants. Their wide selection, expert advice, and serene atmosphere make every visit enjoyable. Highly recommend for anyone looking to enhance their garden!"</p>
+                        <h3 class="mt-3">Bhoomi Patel</h3>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="testimonial__card p-4 text-center">
+                        <p>"At Outback Nursery, stunning plants transform my home into a serene oasis, adding elegance and charm to create a refreshing atmosphere. Outback Nursery is my top choice for all things green and lovely!"</p>
+                        <h3 class="mt-3">Alex</h3>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="testimonial__card p-4 text-center">
+                        <p>"At Outback Nursery, expert guidance enhanced my gardening skills, enriching my home with vibrant greenery. The knowledgeable staff provided invaluable advice on plant care, ensuring my indoor garden flourishes with Outback Nursery's beauty."</p>
+                        <h3 class="mt-3">Michael</h3>
+                    </div>
+                </div>
             </div>
+            <!-- Carousel Pagination Indicators -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
+            <!-- Carousel Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-      </section>
-      <section class="Contact">
-        <div class="max-width-contact">
-          <div class="contact-content">
-            <div style="visibility: hidden">
-              <h3>Stay upadated with our latest events & gardening tips</h3>
-              <a href="">Stay Connect</a>
-            </div>
-            <form action="#" method="post">
-              <h2 class="l-mt-1_5 l-mb-1">Have any Question or Feedback?</h2>
-              <p>We are happy to here from You.</p>
-              <input
-                type="text"
-                name="name"
-                placeholder="Name"
-                required
-              /><br />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                required
-              /><br />
-              <textarea name="message" placeholder="Message" required></textarea
-              ><br />
-              <input type="submit" value="Submit" />
-            </form>
-          </div>
-        </div>
-      </section>
+    </div>
+</section>
 
-      <!-- Footer -->
-      <footer>
-        <p>&copy; 2024 Outback Nursery. All rights reserved.</p>
-    </footer>
-    <script></script>
+
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Have any Questions or Feedback?</h2>
+        <p class="text-center mb-5">We are happy to hear from you.</p>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form action="#" method="post" class="p-4 bg-white rounded shadow">
+                    <div class="mb-3">
+                        <input type="text" name="name" class="form-control" placeholder="Name" required />
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" name="email" class="form-control" placeholder="Email" required />
+                    </div>
+                    <div class="mb-3">
+                        <textarea name="message" class="form-control" placeholder="Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer class="text-white">
+    <div class="container">
+        <p class="mb-2">&copy; 2024 Outback Nursery. All rights reserved.</p>
+        <div>
+            <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+</footer>
+
+
 </body>
 </html>
