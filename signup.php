@@ -43,7 +43,7 @@
                         <input type="password" class="form-control" id="signup-confirm-password" required>
                     </div>
                     <button type="submit" class="btn btn-success w-100">Sign Up</button>
-                    <p class="mt-3 text-center">Already have an account? <a href="login.php">Login</a></p>
+                    <p class="mt-3 text-center">Already have an account? <a href="index.php">Login</a></p>
                 </form>
             </div>
         </div>

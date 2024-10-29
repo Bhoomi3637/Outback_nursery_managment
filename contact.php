@@ -30,7 +30,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Home</a>
+                        <a class="nav-link" href="user_home.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="product.php">Product</a>
@@ -39,7 +39,7 @@
                         <a class="nav-link" href="contact.php">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-outline-success login" href="login.php" >Login</a>
+                        <a class="nav-link btn btn-outline-success login" href="index.php" >Login</a>
                     </li>
                 </ul>
             </div>
