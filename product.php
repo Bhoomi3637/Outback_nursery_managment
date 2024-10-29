@@ -57,8 +57,23 @@
         </div>
     </nav>
 </header>
-<section class="product-grid py-5 products mt-5 pt-5">
-    <h1 class="text-center mb-4">Our plant collections</h1>
+<!-- search -->
+<section class="search">
+    <div class="container mt-5 pt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-6"> <!-- Adjusts the width and aligns to the right -->
+                <form class="d-flex justify-content-end" action="#" method="GET">
+                    <input class="form-control me-2" type="search" placeholder="Search for plants" aria-label="Search" name="query" style="width: 70%;">
+                    <button class="btn btn-primary" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- plants -->
+<section class="product-grid py-5 products mt-5 pt-5 py-5">
+    <h1 class="text-center mb-4 py-5">Our plant collections</h1>
     <div class="container">
         <div class="row">
             <!-- Product 1 -->
