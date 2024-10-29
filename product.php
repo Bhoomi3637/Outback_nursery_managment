@@ -20,7 +20,7 @@
     <header>
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-            <!-- Bootstrap logo using a brand element -->
+            <!-- Brand/logo -->
             <a class="navbar-brand" href="#">
                 Outback Nursery
             </a>
@@ -36,10 +36,21 @@
                         <a class="nav-link" href="product.php">Product</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="nav-link" href="contact.php">Contact</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-outline-success login" href="index.php" >Login</a>
+                    <!-- User profile dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="image/user.png" alt="Profile" class="rounded-circle" width="30" height="30">
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <!-- Username placeholder -->
+                            <li class="dropdown-item-text fw-bold">Hello, Username</li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Favourites</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
