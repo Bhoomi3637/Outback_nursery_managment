@@ -108,6 +108,10 @@ var_dump($_POST);
                         <input type="email" name="email" class="form-control" id="signup-email" value="<?php echo isset($email) ? htmlspecialchars($email) : ''; ?>" required>
                     </div>
                     <div class="mb-3">
+                        <label for="signup-phn" class="form-label">Phone:</label>
+                        <input type="phone" class="form-control" id="signup-phone" required>
+                    </div>
+                    <div class="mb-3">
                         <label for="signup-password" class="form-label">Password:</label>
                         <input type="password" name="password" class="form-control" id="signup-password" required>
                     </div>
@@ -116,7 +120,7 @@ var_dump($_POST);
                         <input type="password" name="confirm_password" class="form-control" id="signup-confirm-password" required>
                     </div>
                     <button type="submit" class="btn btn-success w-100">Sign Up</button>
-                    <p class="mt-3 text-center">Already have an account? <a href="login.php">Login</a></p>
+                    <p class="mt-3 text-center">Already have an account? <a href="index.php">Login</a></p>
                 </form>
             </div>
         </div>
