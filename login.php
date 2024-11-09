@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["username"] = $username;
 
             // Redirect to homepage
-            header("Location: index.php");
+            header("Location: user_home.php");
             exit();
         } else {
             $message = "Invalid password.";
