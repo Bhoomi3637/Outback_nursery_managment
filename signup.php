@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 // Debugging: Check if the form data is received
-var_dump($_POST);
+// var_dump($_POST);
 
 ?>
 

@@ -17,7 +17,6 @@
 </head>
 <body>
     <!-- Navigation -->
-     <?php session_start();?>
    
     <main class="main-bg">
     <section class="py-5">
