@@ -39,6 +39,9 @@
                         <a class="nav-link" href="category.php">Categories</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="view_categories.php">View Categories</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="add_plant.php">Plants</a>
                     </li>
                    
