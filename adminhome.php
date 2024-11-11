@@ -36,7 +36,7 @@
                         <a class="nav-link" href="adminhome.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Categories</a>
+                        <a class="nav-link" href="category.php">Categories</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="add_plant.php">Plants</a>
