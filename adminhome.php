@@ -36,25 +36,12 @@
                         <a class="nav-link" href="adminhome.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Product</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="#">Categories</a>
                     </li>
-                    <!-- User profile dropdown -->
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="image/user.png" alt="Profile" class="rounded-circle" width="30" height="30">
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        
-                            <li class="dropdown-item-text fw-bold">Hello, Username</li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Favourites</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Logout</a></li>
-                        </ul>
-                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="add_plant.php">Plants</a>
+                    </li>
+                   
                 </ul>
             </div>
         </div>
