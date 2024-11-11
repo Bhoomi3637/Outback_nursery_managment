@@ -3,89 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Outback Nursery - Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<!-- Bootstrap JS (including Popper.js) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+
+    <title>Outback Nursery</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Navigation -->
     <header>
-        <nav class="navbar">
-            <div class="logo">
-                <a href="index.html">Outback Nursery</a>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <!-- Brand/logo -->
+            <a class="navbar-brand" href="#">
+                Outback Nursery
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminhome.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Categories</a>
+                    </li>
+                    <!-- User profile dropdown -->
+                    <!-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="image/user.png" alt="Profile" class="rounded-circle" width="30" height="30">
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        
+                            <li class="dropdown-item-text fw-bold">Hello, Username</li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Favourites</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </li> -->
+                </ul>
             </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
-
-            <!-- Add Plant Button -->
-            <div class="add-plant-button">
-                <a href="add-plant.html" class="button">Add Plant</a>
-            </div>
-
-            <!-- Search bar -->
-            <form class="search-form" action="search-results.html" method="GET">
-                <input type="text" class="search-input" name="query" placeholder="Search...">
-                <button type="submit" class="search-btn">Search</button>
-            </form>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
+   
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section class="hero d-flex align-items-center">
+    <div class="container text-center">
         <div class="hero-content">
-            <h1>Welcome to Outback Nursery - Admin</h1>
-            <p>Manage your plants and garden supplies efficiently</p>
+            <h1 class="display-4">Welcome to Outback Nursery</h1>
+            <p class="lead">Your trusted source for quality plants and garden supplies</p>
+            <a href="#" class="btn btn-success btn-lg">Grab Your Happiness</a>
         </div>
-        <img src="hero-image.jpg" alt="Lush garden at Outback Nursery">
-    </section>
+    </div>
+</section>
 
-    <!-- Product Section -->
-    <section id="product" class="products">
-        <h2>Our Products</h2>
-        <div class="product-list">
-            <div class="product-item">
-                <img src="product1.jpg" alt="Product 1">
-                <h3>Product 1</h3>
-                <p>Description of product 1.</p>
-            </div>
-            <div class="product-item">
-                <img src="product2.jpg" alt="Product 2">
-                <h3>Product 2</h3>
-                <p>Description of product 2.</p>
-            </div>
-            <div class="product-item">
-                <img src="product3.jpg" alt="Product 3">
-                <h3>Product 3</h3>
-                <p>Description of product 3.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Us Section -->
-    <section id="about" class="about-us">
-        <h2>About Us</h2>
-        <p>Outback Nursery has been providing the best plants and garden services for over 20 years. We pride ourselves on helping our customers grow beautiful gardens.</p>
-    </section>
-
-    <!-- Testimonial Section -->
-    <section id="testimonials" class="testimonials">
-        <h2>What Our Customers Say</h2>
-        <div class="testimonial-item">
-            <p>"Amazing plants and great service! Highly recommend!"</p>
-            <h4>- Jane Doe</h4>
-        </div>
-        <div class="testimonial-item">
-            <p>"The staff is knowledgeable, and the variety of plants is fantastic!"</p>
-            <h4>- John Smith</h4>
-        </div>
-    </section>
 
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Outback Nursery. All rights reserved.</p>
-    </footer>
+    <footer class="text-white">
+    <div class="container">
+        <p class="mb-2">&copy; 2024 Outback Nursery. All rights reserved.</p>
+        <div>
+            <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+</footer>
+
 </body>
 </html>
