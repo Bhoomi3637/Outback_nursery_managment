@@ -86,10 +86,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <a class="nav-link" href="adminhome.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Categories</a>
+                        <a class="nav-link" href="category.php">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="view_categories.php">View Categories</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="add_plant.php">Plants</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="view_plants.php">View Plants</a>
                     </li>
                 </ul>
             </div>
@@ -141,6 +147,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 </section>
 
+ <!-- Footer -->
+ <footer class="text-white">
+    <div class="container">
+        <p class="mb-2">&copy; 2024 Outback Nursery. All rights reserved.</p>
+        <div>
+            <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+</footer>
+
 <!-- Success Modal -->
 <?php if ($success_message): ?>
 <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
@@ -159,6 +178,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
 </div>
+
+
 <script>
     // Show the modal when the page loads
     window.onload = function() {

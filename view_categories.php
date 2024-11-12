@@ -49,31 +49,37 @@ if (!$result) {
 <body>
     <!-- Navigation -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Outback Nursery</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="adminhome.php">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="category.php">Categories</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="view_categories.php">View Categories</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="add_plant.php">Plants</a>
-                        </li>
-                    </ul>
-                </div>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <!-- Brand/logo -->
+            <a class="navbar-brand" href="#">
+                Outback Nursery
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminhome.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="category.php">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="view_categories.php">View Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="add_plant.php">Plants</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="view_plants.php">View Plants</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
 
     <!-- Categories Section -->
     <div class="container my-5 mt-5 pt-5">
@@ -101,6 +107,19 @@ if (!$result) {
             </tbody>
         </table>
     </div>
+
+     <!-- Footer -->
+ <footer class="text-white">
+    <div class="container">
+        <p class="mb-2">&copy; 2024 Outback Nursery. All rights reserved.</p>
+        <div>
+            <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+</footer>
 
     <!-- Success Modal -->
     <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
@@ -139,16 +158,6 @@ if (!$result) {
 </div>
 
 
-    <footer class="text-white">
-        <div class="container">
-            <p class="mb-2">&copy; 2024 Outback Nursery. All rights reserved.</p>
-            <div>
-                <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-        </div>
-    </footer>
+   
 </body>
 </html>

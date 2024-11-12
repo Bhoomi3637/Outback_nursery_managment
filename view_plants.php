@@ -35,16 +35,22 @@
                         <a class="nav-link" href="adminhome.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Categories</a>
+                        <a class="nav-link" href="category.php">Categories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="add_plant.php">Add Plant</a>
+                        <a class="nav-link" href="view_categories.php">View Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="add_plant.php">Plants</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="view_plants.php">View Plants</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-   </header>
+</header>
 
    <!-- Plant List -->
    <div class="container mt-5">

@@ -43,32 +43,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <!-- Navigation -->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <div class="container-fluid">
-                <!-- Brand/logo -->
-                <a class="navbar-brand" href="#">Outback Nursery</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="adminhome.php">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="category.php">Categories</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="view_categories.php">View Categories</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="add_plant.php">Plants</a>
-                        </li>
-                    </ul>
-                </div>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <!-- Brand/logo -->
+            <a class="navbar-brand" href="#">
+                Outback Nursery
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminhome.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="category.php">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="view_categories.php">View Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="add_plant.php">Plants</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="view_plants.php">View Plants</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
 
     <!-- Category Section -->
     <section class="category d-flex justify-content-center align-items-center" style="height: 100vh;">
@@ -112,17 +117,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 
     <!-- Footer -->
-    <footer class="text-white">
-        <div class="container">
-            <p class="mb-2">&copy; 2024 Outback Nursery. All rights reserved.</p>
-            <div>
-                <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
-            </div>
+ <footer class="text-white">
+    <div class="container">
+        <p class="mb-2">&copy; 2024 Outback Nursery. All rights reserved.</p>
+        <div>
+            <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
         </div>
-    </footer>
+    </div>
+</footer>
 
     <script>
       document.addEventListener("DOMContentLoaded", function() {
