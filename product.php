@@ -102,10 +102,17 @@ $noResults = mysqli_num_rows($result) === 0;
                                 <img src="<?php echo $plant['image']; ?>" alt="Plant Image" class="product-image">
                                 <div class="card-body">
                                     <h3 class="card-title"><?php echo $plant['name']; ?></h3>
-                                    <p class="card-text"><?php echo $plant['description']; ?></p>
-                                    <div class="price">$<?php echo $plant['price']; ?></div>
+                                    <p class="card-text">
+                                        <?php 
+                                        // echo $plant['description']; ?>
+                                    </p>
+                                    <!-- <div class="price">$ -->
+                                        <?php 
+                                    // echo $plant['price']; ?>
+                                    <!-- </div> -->
                                     <button class="btn btn-primary add-to-cart">
-                                        <a href="product_detail.php?product_id=<?php echo $plant['id']; ?>">View More</a>
+                                    <a href="product_detail.php?product_id=<?php echo $plant['id']; ?>">View More</a>
+
                                     </button>
                                 </div>
                             </div>
