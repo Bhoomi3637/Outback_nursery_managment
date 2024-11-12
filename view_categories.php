@@ -57,7 +57,7 @@ if (!$result) {
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>#</th>
+                    <!-- <th>#</th> -->
                     <th>Category Name</th>
                     <th>Actions</th>
                 </tr>
@@ -67,7 +67,7 @@ if (!$result) {
                 // Loop through the result set and display categories
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<tr>";
-                    echo "<td>" . $row['id'] . "</td>"; // Assuming 'id' is the column name for category ID
+                    // echo "<td>" . $row['id'] . "</td>"; 
                     echo "<td>" . $row['name'] . "</td>"; // Replace 'category_name' with the actual column name for category name
                     echo "<td>
                             <a href='edit_category.php?id=" . $row['id'] . "' class='btn btn-warning btn-sm'>Edit</a>
