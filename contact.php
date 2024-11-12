@@ -65,45 +65,49 @@ session_start();
     </nav>
 </header>
 
-    <main class="py-5">
-        <section class="mt-5">
-
-            <div class="container">
-                <h1 class="text-center mb-4">Contact Us</h1>
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2>Get in Touch</h2>
-                        <form id="contact-form" class="border p-4 rounded bg-light shadow">
-                            <div class="mb-3">
-                                <label for="contact-name" class="form-label">Name:</label>
-                                <input type="text" class="form-control" id="contact-name" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="contact-email" class="form-label">Email:</label>
-                                <input type="email" class="form-control" id="contact-email" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="contact-message" class="form-label">Message:</label>
-                                <textarea class="form-control" id="contact-message" rows="4" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-success w-100">Send Message</button>
-                        </form>
-                    </div>
-                    <div class="col-md-6">
-                        <h2>Our Location</h2>
-                        <p>Address: 123 Green Lane, Hometown, State, Zip Code</p>
-                        <p>Phone: (123) 456-7890</p>
-                        <p>Email: info@outbacknursery.com</p>
-                        <div class="map-container mt-3">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345095074!2d144.9537353153168!3d-37.81720997975119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f5a1c67%3A0x4c6d20377a8b5407!2sOutback%20Nursery!5e0!3m2!1sen!2sau!4v1633020991807!5m2!1sen!2sau" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+<main class="py-5">
+    <section class="mt-5">
+        <div class="container">
+            <h1 class="text-center mb-5">Contact Us</h1>
+            <div class="row align-items-center">
+                <!-- Contact Form Section -->
+                <div class="col-md-6">
+                    <h2 class="mb-4">Get in Touch</h2>
+                    <form id="contact-form" class="border p-4 rounded bg-light shadow-sm">
+                        <div class="mb-3">
+                            <label for="contact-name" class="form-label">Name:</label>
+                            <input type="text" class="form-control form-control-lg" id="contact-name" placeholder="Your Full Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contact-email" class="form-label">Email:</label>
+                            <input type="email" class="form-control form-control-lg" id="contact-email" placeholder="Your Email Address" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contact-message" class="form-label">Message:</label>
+                            <textarea class="form-control form-control-lg" id="contact-message" placeholder="Write your message here..." rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-lg w-100 mt-3">Send Message</button>
+                    </form>
+                </div>
+                <!-- Location Info Section -->
+                <div class="col-md-6">
+                    <div class="p-4 rounded bg-dark text-white shadow-sm">
+                        <h2 class="mb-4">Our Location</h2>
+                        <p><i class="fas fa-map-marker-alt me-2"></i> 123 Green Lane, Hometown, State, Zip Code</p>
+                        <p><i class="fas fa-phone me-2"></i> Phone: (123) 456-7890</p>
+                        <p><i class="fas fa-envelope me-2"></i> Email: info@outbacknursery.com</p>
+                        <div class="map-container mt-3 rounded overflow-hidden">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345095074!2d144.9537353153168!3d-37.81720997975119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f5a1c67%3A0x4c6d20377a8b5407!2sOutback%20Nursery!5e0!3m2!1sen!2sau!4v1633020991807!5m2!1sen!2sau" 
+                            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
 
-    <footer class="bg-dark text-white py-4">
+    <footer class="text-white py-4">
         <div class="container text-center">
             <p class="mb-2">&copy; 2024 Outback Nursery. All rights reserved.</p>
             <div>

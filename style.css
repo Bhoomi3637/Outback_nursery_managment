@@ -339,6 +339,38 @@ input[type="submit"]:hover {
     min-height: 100vh; /* Makes sure the form is vertically centered on the page */
 }
 
+
+/* contact */
+
+/* Custom Styles for Contact Section */
+#contact-form input,
+#contact-form textarea {
+    border-radius: 8px;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+}
+
+.map-container iframe {
+    border-radius: 8px;
+}
+
+.bg-light {
+    background-color: #f8f9fa !important;
+}
+
+.bg-dark {
+    background-color: #343a40 !important;
+}
+
+h2 {
+    color: #28a745;
+}
+
+
 footer {
     position: relative;
     bottom: 0;
