@@ -31,10 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $update_query = "UPDATE category SET name = '$updated_name' WHERE id = '$category_id'";
     if (mysqli_query($conn, $update_query)) {
         $message = "Category updated successfully!";
-        
-        // Redirect to the view categories page
-        header("Location: view_categories.php");
-        // exit();
     } else {
         $message = "Failed to update category.";
     }
@@ -139,6 +135,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php if (isset($message)): ?>
           var myModal = new bootstrap.Modal(document.getElementById('messageModal'));
           myModal.show();
+
+          // When the modal is hidden, redirect to view_categories.php
+          $('#messageModal').on('hidden.bs.modal', function () {
+            window.location.href = 'view_categories.php'; // Redirect to the categories view page
+          });
         <?php endif; ?>
       });
     </script>

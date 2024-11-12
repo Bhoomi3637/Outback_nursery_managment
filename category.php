@@ -14,7 +14,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->bind_param("s", $category_name); // "s" stands for string (bind as a string)
         
         if ($stmt->execute()) {
-            $message = "Category added successfully!";
+            // Set a success message and redirect to 'view_categories.php'
+            $_SESSION['message'] = "Category added successfully!";
+            header("Location: view_categories.php");
+            exit(); // Ensure no further code is executed after the redirect
         } else {
             $message = "Error: " . $stmt->error;
         }
@@ -23,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -55,8 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <a class="nav-link" href="category.php">Categories</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="view_categories.php">View Categories</a>
-                    </li>
+                            <a class="nav-link" href="view_categories.php">View Categories</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="add_plant.php">Plants</a>
                         </li>
@@ -80,35 +84,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <label for="category_name" class="form-label text-white">Category Name</label>
                             <input type="text" class="form-control" id="category_name" name="category_name" required>
                         </div>
-                    </div>
-                    
-                    <!-- Right side button -->
-                    <div class="col-md-6 col-lg-4 d-flex justify-content-center align-items-center mt-5 pt-5">
-                        <button type="submit" class="btn btn-primary">Add Category</button>
-                    </div>
-                </form>
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-primary">Add Category</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Modal -->
-        <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="messageModalLabel">Notification</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <?php echo $message; ?>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              </div>
-            </div>
+    <!-- Modal -->
+    <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="messageModalLabel">Notification</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <?php echo $message; ?>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
-        
+      </div>
+    </div>
+
     <!-- Footer -->
     <footer class="text-white">
         <div class="container">

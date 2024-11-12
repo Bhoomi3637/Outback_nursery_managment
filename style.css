@@ -326,6 +326,18 @@ input[type="submit"]:hover {
    
 }
 
+/* plants */
+
+.form-container {
+    max-width: 600px; /* Reduces the width of the form */
+    margin: 0 auto;  /* Centers the form horizontally */
+}
+.plants {
+    display: flex;
+    justify-content: center;  /* Centers the form vertically within the container */
+    align-items: center;
+    min-height: 100vh; /* Makes sure the form is vertically centered on the page */
+}
 
 footer {
     position: relative;

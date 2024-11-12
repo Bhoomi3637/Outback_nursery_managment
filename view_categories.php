@@ -8,7 +8,6 @@ $result = mysqli_query($conn, $query);
 if (!$result) {
     die("Query failed: " . mysqli_error($conn));
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +20,31 @@ if (!$result) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <title>Outback Nursery - Categories</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        // Function to delete category via AJAX
+        function deleteCategory(id) {
+            if (confirm("Are you sure you want to delete this category?")) {
+                $.ajax({
+                    url: 'delete_category.php',
+                    type: 'GET',
+                    data: { id: id },
+                    success: function(response) {
+                        if (response === 'success') {
+                            // Remove the category row from the table
+                            $('tr[data-id="' + id + '"]').fadeOut();
+                            // Show success modal
+                            $('#successModal').modal('show');
+                        } else {
+                            alert("Error deleting category.");
+                        }
+                    },
+                    error: function() {
+                        alert("Something went wrong, please try again.");
+                    }
+                });
+            }
+        }
+    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -57,7 +81,6 @@ if (!$result) {
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <!-- <th>#</th> -->
                     <th>Category Name</th>
                     <th>Actions</th>
                 </tr>
@@ -66,12 +89,11 @@ if (!$result) {
                 <?php
                 // Loop through the result set and display categories
                 while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<tr>";
-                    // echo "<td>" . $row['id'] . "</td>"; 
-                    echo "<td>" . $row['name'] . "</td>"; // Replace 'category_name' with the actual column name for category name
+                    echo "<tr data-id='" . $row['id'] . "'>";
+                    echo "<td>" . $row['name'] . "</td>"; // Replace 'name' with the actual column name for category name
                     echo "<td>
                             <a href='edit_category.php?id=" . $row['id'] . "' class='btn btn-warning btn-sm'>Edit</a>
-                            <a href='delete_category.php?id=" . $row['id'] . "' class='btn btn-danger btn-sm'>Delete</a>
+                            <button onclick='deleteCategory(" . $row['id'] . ")' class='btn btn-danger btn-sm'>Delete</button>
                           </td>";
                     echo "</tr>";
                 }
@@ -79,6 +101,43 @@ if (!$result) {
             </tbody>
         </table>
     </div>
+
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">Category Deleted</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    The category has been successfully deleted.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Success Modal -->
+<div class="modal fade" id="editSuccessModal" tabindex="-1" aria-labelledby="editSuccessModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editSuccessModalLabel">Category Edited</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                The category has been successfully edited.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
     <footer class="text-white">
         <div class="container">
