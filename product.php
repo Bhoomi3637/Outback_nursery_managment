@@ -1,9 +1,18 @@
 <?php
 require 'db.php'; // Assuming you already have a working DB connection
 
-// Query to fetch all plants (no filtering yet)
-$query = "SELECT * FROM plant"; 
+// Check if the search query is set
+$searchQuery = isset($_GET['query']) ? $_GET['query'] : '';
+
+// Query to fetch all plants, applying the search filter if needed
+$query = "SELECT * FROM plant";
+if ($searchQuery) {
+    $query .= " WHERE name LIKE '%" . mysqli_real_escape_string($conn, $searchQuery) . "%'";
+}
 $result = mysqli_query($conn, $query);
+
+// Check if any plants are found
+$noResults = mysqli_num_rows($result) === 0;
 ?>
 
 <!DOCTYPE html>
@@ -66,9 +75,13 @@ $result = mysqli_query($conn, $query);
             <div class="row">
                 <div class="col-md-6 offset-md-6">
                     <form class="d-flex justify-content-end" action="#" method="GET">
-                        <input class="form-control me-2" type="search" placeholder="Search for plants" aria-label="Search" name="query" style="width: 70%;">
+                        <input class="form-control me-2" type="search" placeholder="Search for plants" aria-label="Search" name="query" style="width: 70%;" value="<?php echo htmlspecialchars($searchQuery); ?>">
                         <button class="btn btn-primary" type="submit">Search</button>
                     </form>
+                    <!-- Display no results message if no plants found -->
+                    <?php if ($noResults): ?>
+                        <p class="text-center text-danger mt-3">No such plants found. Please try a different search term.</p>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -81,22 +94,24 @@ $result = mysqli_query($conn, $query);
             <div class="row">
                 <?php
                 // Loop through each row in the result set and display product details
-                while ($plant = mysqli_fetch_assoc($result)) {
-                    ?>
-                    <div class="col-md-4 mb-4 plant-card" id="plant-<?php echo $plant['id']; ?>">
-                        <div class="card text-center">
-                            <img src="<?php echo $plant['image']; ?>" alt="Plant Image" class="product-image">
-                            <div class="card-body">
-                                <h3 class="card-title"><?php echo $plant['name']; ?></h3>
-                                <p class="card-text"><?php echo $plant['description']; ?></p>
-                                <div class="price">$<?php echo $plant['price']; ?></div>
-                                <button class="btn btn-primary add-to-cart">
-                                    <a href="product_detail.php?product_id=<?php echo $plant['id']; ?>">View More</a>
-                                </button>
+                if (!$noResults) {
+                    while ($plant = mysqli_fetch_assoc($result)) {
+                        ?>
+                        <div class="col-md-4 mb-4 plant-card" id="plant-<?php echo $plant['id']; ?>">
+                            <div class="card text-center">
+                                <img src="<?php echo $plant['image']; ?>" alt="Plant Image" class="product-image">
+                                <div class="card-body">
+                                    <h3 class="card-title"><?php echo $plant['name']; ?></h3>
+                                    <p class="card-text"><?php echo $plant['description']; ?></p>
+                                    <div class="price">$<?php echo $plant['price']; ?></div>
+                                    <button class="btn btn-primary add-to-cart">
+                                        <a href="product_detail.php?product_id=<?php echo $plant['id']; ?>">View More</a>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <?php
+                        <?php
+                    }
                 }
                 ?>
             </div>
