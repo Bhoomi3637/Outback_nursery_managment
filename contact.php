@@ -1,3 +1,7 @@
+<?php 
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,13 +15,16 @@
 <!-- Bootstrap JS (including Popper.js) -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
 
     <title>Outback Nursery</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-       <!-- Navigation -->
-       <header>
+    <!-- Navigation -->
+    <header>
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
             <!-- Brand/logo -->
@@ -45,11 +52,11 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <!-- Username placeholder -->
-                            <li class="dropdown-item-text fw-bold">Hello, Username</li>
+                            <li class="dropdown-item-text fw-bold">Hello,  <?php echo htmlspecialchars($_SESSION["username"]); ?></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#">Favourites</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                            <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -57,7 +64,6 @@
         </div>
     </nav>
 </header>
-
 
     <main class="py-5">
         <section class="mt-5">
