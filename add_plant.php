@@ -35,6 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 if (mysqli_query($conn, $query)) {
                     $success_message = "New plant added successfully!"; // Set success message
+                
                 } else {
                     echo "Error adding plant: " . mysqli_error($conn);
                 }
