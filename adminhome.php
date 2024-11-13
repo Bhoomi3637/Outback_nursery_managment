@@ -47,6 +47,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="view_plants.php">View Plants</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="add_stock.php">Stocks</a>
+                    </li>
                 </ul>
             </div>
         </div>
