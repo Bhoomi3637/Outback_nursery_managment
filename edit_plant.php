@@ -1,121 +1,180 @@
 <?php
 require 'db.php'; // Ensure your database connection is set up
 
-// Fetch category options for the dropdown
-$category_query = "SELECT * FROM category"; // Replace 'category' with your actual table name for categories
-$categories = $conn->query($category_query);
+// Check if form is submitted
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Get form data
+    $plant_id = $_POST['id']; // Hidden input field for the plant ID
+    $name = $_POST['name'];
+    $description = $_POST['description'];
+    $price = $_POST['price'];
+    $category_id = $_POST['category'];
+    
+    // Handle image upload
+    if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
+        $image_name = $_FILES['image']['name'];
+        $image_tmp_name = $_FILES['image']['tmp_name'];
+        $image_path = 'uploads/' . $image_name;
 
-// Fetch the plant details if the ID is passed (for edit purposes)
-$plant = null;
+        // Move uploaded file to 'uploads' directory
+        if (move_uploaded_file($image_tmp_name, $image_path)) {
+            $image_uploaded = true;
+        } else {
+            echo "Failed to upload image.";
+            $image_uploaded = false;
+        }
+    }
+
+    // Prepare the SQL update query
+    if (isset($image_uploaded) && $image_uploaded) {
+        // Update with image
+        $update_query = "UPDATE plant 
+                         SET name = ?, description = ?, price = ?, Category_id = ?, image = ? 
+                         WHERE id = ?";
+        $stmt = $conn->prepare($update_query);
+        $stmt->bind_param("ssdssi", $name, $description, $price, $category_id, $image_path, $plant_id);
+    } else {
+        // Update without changing the image
+        $update_query = "UPDATE plant 
+                         SET name = ?, description = ?, price = ?, Category_id = ? 
+                         WHERE id = ?";
+        $stmt = $conn->prepare($update_query);
+        $stmt->bind_param("ssdsi", $name, $description, $price, $category_id, $plant_id);
+    }
+
+    // Execute the update query
+    if ($stmt->execute()) {
+        // Redirect with success alert
+        echo "<script>alert('Plant details have been successfully updated.'); window.location.href = 'view_plants.php';</script>";
+        exit();
+    } else {
+        echo "Error updating plant: " . $stmt->error;
+    }
+}
+
+// Fetch plant details for pre-filling the form when accessing via GET
 if (isset($_GET['id'])) {
     $plant_id = $_GET['id'];
-
-    $plant_query = "SELECT * FROM plant WHERE id = $plant_id"; // Replace 'plant' with your actual plant table name
-    $plant_result = $conn->query($plant_query);
+    $plant_query = "SELECT * FROM plant WHERE id = ?";
+    $stmt = $conn->prepare($plant_query);
+    $stmt->bind_param("i", $plant_id);
+    $stmt->execute();
+    $plant_result = $stmt->get_result();
 
     if ($plant_result->num_rows > 0) {
         $plant = $plant_result->fetch_assoc();
     } else {
-        // Handle the case where the plant is not found
         echo "Plant not found.";
+        exit();
     }
+} else {
+    echo "Invalid request.";
+    exit();
 }
-
-?>  
+?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Outback Nursery</title>
-    
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Edit Category</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-   <!-- Navigation -->
-   <header>
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container-fluid">
-            <!-- Brand/logo -->
-            <a class="navbar-brand" href="#">
-                Outback Nursery
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="adminhome.php">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Categories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="add_plant.php">Add Plant</a>
-                    </li>
-                </ul>
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Outback Nursery</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="adminhome.php">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="category.php">Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="view_categories.php">View Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="add_plant.php">Plants</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="view_plants.php">View Plants</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-   </header>
+        </nav>
+    </header>
 
-   <section class="plants">
-    <div class="container mt-5 pt-5">
-        <h1 class="mb-4 text-center"><?php echo $plant ? "Edit Plant" : "Add Plant"; ?></h1>
-        <form action="add_plant.php" method="POST" enctype="multipart/form-data" class="form-container">
-            <div class="mb-3">
-                <label for="name" class="form-label">Plant Name:</label>
-                <input type="text" name="name" id="name" class="form-control" value="<?php echo $plant ? $plant['name'] : ''; ?>" required>
-            </div>
+    <section class="mt-5 pt-5">
+        <div class="container mt-5">
+            <h1>Edit Plant</h1>
 
-            <div class="mb-3">
-                <label for="description" class="form-label">Description:</label>
-                <textarea name="description" id="description" class="form-control" rows="3" required><?php echo $plant ? $plant['description'] : ''; ?></textarea>
-            </div>
+            <!-- Success Message -->
+            <?php if (isset($_GET['status']) && $_GET['status'] == 'updated'): ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    Plant details have been successfully updated.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php endif; ?>
 
-            <div class="mb-3">
-                <label for="price" class="form-label">Price:</label>
-                <input type="number" name="price" id="price" class="form-control" step="0.01" value="<?php echo $plant ? $plant['price'] : ''; ?>" required>
-            </div>
+            <form action="edit_plant.php" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="<?php echo $plant['id']; ?>">
 
-            <div class="mb-3">
-                <label for="category" class="form-label">Category:</label>
-                <select name="category" id="category" class="form-control" required>
-                    <option value="" disabled <?php echo !$plant ? 'selected' : ''; ?>>Select a category</option>
-                    <?php while ($category = $categories->fetch_assoc()) { ?>
-                        <option value="<?php echo $category['id']; ?>" <?php echo $plant && $plant['Category_id'] == $category['id'] ? 'selected' : ''; ?>>
-                            <?php echo $category['name']; ?>
-                        </option>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Plant Name</label>
+                    <input type="text" name="name" id="name" class="form-control" value="<?php echo $plant['name']; ?>" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="description" id="description" class="form-control" rows="3" required><?php echo $plant['description']; ?></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="number" name="price" id="price" class="form-control" step="0.01" value="<?php echo $plant['price']; ?>" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="category" class="form-label">Category</label>
+                    <select name="category" id="category" class="form-control" required>
+                        <option value="" disabled>Select a category</option>
+                        <?php
+                        // Fetch category options for the dropdown
+                        $category_query = "SELECT * FROM category";
+                        $categories = $conn->query($category_query);
+                        while ($category = $categories->fetch_assoc()) {
+                            $selected = $plant['Category_id'] == $category['id'] ? 'selected' : '';
+                            echo "<option value='{$category['id']}' $selected>{$category['name']}</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="image" class="form-label">Image</label>
+                    <input type="file" name="image" id="image" class="form-control" accept="image/*">
+                    <?php if ($plant['image']) { ?>
+                        <img src="<?php echo $plant['image']; ?>" alt="Plant Image" class="mt-3" width="100">
                     <?php } ?>
-                </select>
-            </div>
+                </div>
 
-            <div class="mb-3">
-                <label for="image" class="form-label">Image:</label>
-                <input type="file" name="image" id="image" class="form-control" accept="image/*">
-                <?php if ($plant && $plant['image']) { ?>
-    <img src="<?php echo $plant['image']; ?>" alt="Plant Image" class="mt-3" width="100">
-<?php } ?>
-            </div>
+                <button type="submit" class="btn btn-primary">Update Plant</button>
+            </form>
+        </div>
+    </section>
 
-            <button type="submit" class="btn btn-primary"><?php echo $plant ? "Update Plant" : "Add Plant"; ?></button>
-        </form>
-    </div>
-   </section>
-
-   <!-- Bootstrap JS (including Popper.js) -->
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
