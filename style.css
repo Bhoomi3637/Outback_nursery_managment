@@ -214,13 +214,15 @@ a {
 
 .testimonial__card h3 {
     color: #4CAF50;
+    
+    font-size:large;
     font-weight: bold;
 }
 .carousel-indicators button {
-    background-color: #4CAF50; /* Change indicator color */
+    background-color:red !important;/* Change indicator color */
 }
 .carousel-indicators .active {
-    background-color: #fff; /* Active indicator color */
+    background-color:  #4CAF50 !important; /* Active indicator color */
 }
 
 
