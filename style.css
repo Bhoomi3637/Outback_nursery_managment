@@ -370,6 +370,25 @@ h2 {
     color: #28a745;
 }
 
+/* out of stock quantity */
+
+/* Styling for the Out of Stock badge */
+.out-of-stock-badge {
+    background-color: rgba(255, 0, 0, 0.7); /* Red background with transparency */
+    color: #fff; /* White text */
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Slightly dim the image when out of stock */
+.plant-image {
+    opacity: 0.7; /* Dim effect */
+}
+
+
 
 footer {
     position: relative;
