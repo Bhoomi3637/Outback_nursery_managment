@@ -70,7 +70,7 @@ if (isset($_POST['update_stock'])) {
     </header>
 
     <section class="container mt-5 pt-5">
-        <h2 class="text-center mb-4">Update Plant Stock</h2>
+        <h2 class="text-center mb-4">Add Plant Stock</h2>
 
         <form method="POST" action="" class="shadow p-4 bg-light rounded w-50 mx-auto">
             <div class="mb-3">
