@@ -48,6 +48,9 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                         <a class="nav-link" href="product.php">Product</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="blog.php">Blog</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="contact.php">Contact</a>
                     </li>
                     <!-- User profile dropdown -->
