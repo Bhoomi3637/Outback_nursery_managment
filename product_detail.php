@@ -1,6 +1,6 @@
 <?php
 session_start(); 
-require 'db.php'; // Include your DB connection file
+require 'db.php';
 
 // Check if the product_id is passed in the URL
 if (isset($_GET['product_id'])) {
@@ -43,12 +43,11 @@ if (isset($_GET['product_id'])) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Outback Nursery</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -72,14 +71,11 @@ if (isset($_GET['product_id'])) {
         </nav>
     </header>
 
-    <!-- Plant Details Section -->
     <section class="mt-5 pt-5">
         <div class="container mt-5">
             <div class="row align-items-center">
-                <!-- Plant Image with "Out of Stock" Badge -->
                 <div class="col-md-6 text-center position-relative">
                     <img src="<?php echo $plant['image']; ?>" alt="<?php echo $plant['name']; ?>" class="img-fluid plant-image">
-                    <!-- "Out of Stock" Badge -->
                     <?php if ($plant['stock_quantity'] === null || $plant['stock_quantity'] == 0): ?>
                         <div class="out-of-stock-badge position-absolute top-50 start-50 translate-middle">
                             <span>Out of Stock</span>
@@ -87,7 +83,6 @@ if (isset($_GET['product_id'])) {
                     <?php endif; ?>
                 </div>
 
-                <!-- Plant Details -->
                 <div class="col-md-6">
                     <h1><?php echo $plant['name']; ?></h1>
                     <p><strong>Category:</strong> <?php echo $plant['category_name']; ?></p>
@@ -96,17 +91,20 @@ if (isset($_GET['product_id'])) {
                     <p><strong>Stock Quantity:</strong> 
                         <?php echo ($plant['stock_quantity'] > 0) ? $plant['stock_quantity'] : 'Out of Stock'; ?>
                     </p>
-                    <!-- Add to Cart and Back Button -->
-                    <div class="d-flex gap-2 mt-4 pb-5">
+
+                    <!-- Add to Cart Form -->
+                    <form method="POST" action="add_to_favorites.php" class="d-flex gap-2 mt-4 pb-5">
                         <?php if ($plant['stock_quantity'] > 0): ?>
-                            <button class="btn btn-success px-4 py-2">
+                            <input type="number" name="quantity" value="1" min="1" max="<?php echo $plant['stock_quantity']; ?>" class="form-control w-25">
+                            <input type="hidden" name="plant_id" value="<?php echo $plant['id']; ?>">
+                            <button type="submit" class="btn btn-success px-4 py-2">
                                 <i class="fas fa-shopping-cart me-2"></i>Add to Cart
                             </button>
                         <?php endif; ?>
                         <a href="product.php" class="btn btn-secondary px-4 py-2">
                             <i class="fas fa-arrow-left me-2"></i>Back to Products
                         </a>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
