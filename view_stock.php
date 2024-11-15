@@ -13,9 +13,18 @@ $result = mysqli_query($conn, $query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Outback Nursery - Categories</title>
+<!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<!-- Bootstrap JS (including Popper.js) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+
+    <title>Outback Nursery</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -47,12 +56,17 @@ $result = mysqli_query($conn, $query);
                     <li class="nav-item">
                         <a class="nav-link" href="view_plants.php">View Plants</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="add_stock.php">Stocks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="view_stock.php">View Stocks</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-    </header>
-
+</header>
     <!-- Main Content Section -->
     <section class="container mt-5 pt-5">
         <h2 class="text-center mb-4">Stock and Plant Details</h2>

@@ -31,10 +31,6 @@ $noResults = mysqli_num_rows($result) === 0;
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-
-
-    
-    
     <title>Outback Nursery</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -51,6 +47,7 @@ $noResults = mysqli_num_rows($result) === 0;
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="user_home.php">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="product.php">Product</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.php">Blog</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
