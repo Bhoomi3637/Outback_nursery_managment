@@ -13,7 +13,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST["username"]);
     $password = trim($_POST["password"]);
 
-    // Check if username exists in the database
+    // Check if the username matches the admin credentials
+    if ($username == 'admin' && $password == 'admin123') { // Change 'adminpassword' to your desired admin password
+        // Admin credentials are correct, start a session
+        $_SESSION["loggedin"] = true;
+        $_SESSION["username"] = $username;
+        header("Location: adminhome.php");
+        exit();
+    }
+
+    // Check if username exists in the tbl_registration table for regular users
     $sql = "SELECT * FROM tbl_registration WHERE username = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $username);
@@ -22,13 +31,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
-        var_dump($user);
+
         if (password_verify($password, $user['Password'])) {
             // Password is correct, start a session
             $_SESSION["loggedin"] = true;
             $_SESSION["username"] = $username;
 
-            // Redirect to homepage
+            // Fetch Cust_id from tbl_registration
+            $cust_id = $user['Cust_id'];
+
+            // Check if the user exists in tbl_login
+            $loginCheckSql = "SELECT * FROM tbl_login WHERE username = ?";
+            $loginCheckStmt = $conn->prepare($loginCheckSql);
+            $loginCheckStmt->bind_param("s", $username);
+            $loginCheckStmt->execute();
+            $loginCheckResult = $loginCheckStmt->get_result();
+
+            if ($loginCheckResult->num_rows == 0) {
+                // If not present in tbl_login, insert the user into tbl_login
+                $insertLoginSql = "INSERT INTO tbl_login (Cust_id, Username) VALUES (?, ?)";
+                $insertLoginStmt = $conn->prepare($insertLoginSql);
+                $insertLoginStmt->bind_param("is", $cust_id, $username); // Use Cust_id and Username
+                $insertLoginStmt->execute();
+                $insertLoginStmt->close();
+            }
+
+            $loginCheckStmt->close();
+
+            // Redirect to user homepage
             header("Location: user_home.php");
             exit();
         } else {
