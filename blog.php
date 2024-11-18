@@ -57,32 +57,88 @@
             </div>
         </article>
 
-        <!-- Blog Post 2 -->
-        <article class="card mb-4 blog-post">
-            <img src="images/sunlight.jpg" class="card-img-top" alt="Sunlight for Plants">
-            <div class="card-body">
-                <h2 class="card-title">The Importance of Sunlight for Indoor Plants</h2>
-                <p class="card-text">
-                    Sunlight is essential for photosynthesis, the process by which plants make their food. Different
-                    plants require varying amounts of sunlight. Place sun-loving plants like succulents in bright light,
-                    while low-light plants like ferns thrive in indirect sunlight. Observe your plant's behavior to
-                    adjust its lighting needs.
-                </p>
+    <!-- Blog Categories -->
+    <section class="mb-5">
+        <h2 class="text-center mb-4">Explore by Categories</h2>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <a href="category.php?category=indoor" class="text-decoration-none">
+                    <div class="card">
+                        <img src="Image/indoor.jpg" class="card-img-top" alt="Indoor Plants">
+                        <div class="card-body">
+                            <h5 class="card-title">Indoor Plants</h5>
+                        </div>
+                    </div>
+                </a>
             </div>
-        </article>
+            <div class="col-md-4">
+                <a href="category.php?category=outdoor" class="text-decoration-none">
+                    <div class="card">
+                        <img src="Image/outdoor.jpg" class="card-img-top" alt="Outdoor Gardening">
+                        <div class="card-body">
+                            <h5 class="card-title">Outdoor Gardening</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="category.php?category=care" class="text-decoration-none">
+                    <div class="card">
+                        <img src="Image/care.jpg" class="card-img-top" alt="Plant Care Tips">
+                        <div class="card-body">
+                            <h5 class="card-title">Plant Care Tips</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
 
-        <!-- Blog Post 3 -->
-        <article class="card mb-4 blog-post">
-            <img src="images/soil.jpg" class="card-img-top" alt="Choosing the Right Soil">
-            <div class="card-body">
-                <h2 class="card-title">Choosing the Right Soil for Your Plants</h2>
-                <p class="card-text">
-                    The right soil is essential for healthy plants. Choose soil that drains well but retains moisture.
-                    For succulents and cacti, use a sandy, well-draining mix. For leafy plants, use soil that is rich
-                    in organic matter. Remember to repot your plants when they outgrow their containers, usually once a year.
-                </p>
+    <!-- Recent Blog Posts -->
+    <section class="mb-5">
+        <h2 class="text-center mb-4">Recent Blog Posts</h2>
+        <div class="row">
+            <!-- Blog Post 1 -->
+            <div class="col-md-4">
+                <article class="card mb-4 blog-post">
+                    <img src="Image/watering.jpg" class="card-img-top" alt="Watering Plants">
+                    <div class="card-body">
+                        <h2 class="card-title">How to Properly Water Your Plants</h2>
+                        <p class="card-text">
+                            Watering is one of the most important aspects of plant care. Over-watering or under-watering can harm your plants.
+                        </p>
+                        <a href="blog_post.php?id=1" class="btn btn-success">Read More</a>
+                    </div>
+                </article>
             </div>
-        </article>
+            <!-- Blog Post 2 -->
+            <div class="col-md-4">
+                <article class="card mb-4 blog-post">
+                    <img src="Image/sunlight.jpg" class="card-img-top" alt="Sunlight for Plants">
+                    <div class="card-body">
+                        <h2 class="card-title">The Importance of Sunlight for Indoor Plants</h2>
+                        <p class="card-text">
+                            Sunlight is essential for photosynthesis, the process by which plants make their food. Different plants require varying amounts of sunlight.
+                        </p>
+                        <a href="blog_post.php?id=2" class="btn btn-success">Read More</a>
+                    </div>
+                </article>
+            </div>
+            <!-- Blog Post 3 -->
+            <div class="col-md-4">
+                <article class="card mb-4 blog-post">
+                    <img src="Image/soil.jpg" class="card-img-top" alt="Choosing the Right Soil">
+                    <div class="card-body">
+                        <h2 class="card-title">Choosing the Right Soil for Your Plants</h2>
+                        <p class="card-text">
+                            The right soil is essential for healthy plants. Choose soil that drains well but retains moisture.
+                        </p>
+                        <a href="blog_post.php?id=3" class="btn btn-success">Read More</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
 
     </main>
 
