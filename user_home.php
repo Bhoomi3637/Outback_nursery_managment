@@ -215,8 +215,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
 
     <!-- Footer -->
-    <footer class="text-white">
-    <div class="container">
+    <footer class="text-white bg-success py-3">
+    <div class="container-fluid container text-center">
         <p class="mb-2">&copy; 2024 Outback Nursery. All rights reserved.</p>
         <div>
             <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
