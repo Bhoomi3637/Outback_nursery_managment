@@ -18,7 +18,6 @@ session_start();
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
-
     <title>Outback Nursery</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -36,15 +35,10 @@ session_start();
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="user_home.php">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="product.php">Product</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.php">Contact</a>
-                    </li>
+                    <li class="nav-item"> <a class="nav-link" href="user_home.php">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="product.php">Product</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.php">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="profile.php">Profile</a></li>
                     <!-- User profile dropdown -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -56,8 +50,11 @@ session_start();
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#">Favourites</a></li>
                             <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="profile.php">Profile</a></li>
+                            <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                         </ul>
+                    </li>
                     </li>
                 </ul>
             </div>
@@ -117,7 +114,9 @@ session_start();
             <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
             <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
         </div>
-    </footer>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Bootstrap JS and Popper.js -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
