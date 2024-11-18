@@ -27,7 +27,7 @@ if (isset($_GET['product_id'])) {
 
     // Check if the plant is in the user's favorites
     $userId = $_SESSION['user_id'];
-    $favQuery = "SELECT * FROM favorites WHERE cust_id = ? AND plant_id = ?";
+    $favQuery = "SELECT * FROM favourites WHERE cust_id = ? AND plant_id = ?";
     $favStmt = $conn->prepare($favQuery);
     $favStmt->bind_param('ii', $userId, $productId);
     $favStmt->execute();
@@ -46,11 +46,8 @@ if (isset($_GET['product_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<<<<<<< HEAD
-=======
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
->>>>>>> 0ba8d69876ae697b55f2613ba5f97fa0045d2144
     <title>Outback Nursery</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -59,11 +56,8 @@ if (isset($_GET['product_id'])) {
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Outback Nursery</a>
-<<<<<<< HEAD
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-=======
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav">
->>>>>>> 0ba8d69876ae697b55f2613ba5f97fa0045d2144
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -73,21 +67,18 @@ if (isset($_GET['product_id'])) {
                         <li class="nav-item"><a class="nav-link" href="blog.php">Blog</a></li>
                         <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
                         <li class="nav-item dropdown">
-<<<<<<< HEAD
                             <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="image/user.png" alt="Profile" class="rounded-circle" width="30" height="30">
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <li class="dropdown-item-text fw-bold">Hello, <?php echo htmlspecialchars($_SESSION["username"]); ?></li>
                                 <li><a class="dropdown-item" href="#">Favourites</a></li>
-=======
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
                                 <img src="image/user.png" alt="Profile" class="rounded-circle" width="30" height="30">
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <li class="dropdown-item-text">Hello, <?php echo htmlspecialchars($_SESSION["username"]); ?></li>
                                 <li><hr class="dropdown-divider"></li>
->>>>>>> 0ba8d69876ae697b55f2613ba5f97fa0045d2144
                                 <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                             </ul>
                         </li>
@@ -100,13 +91,10 @@ if (isset($_GET['product_id'])) {
     <section class="mt-5 pt-5">
         <div class="container mt-5">
             <div class="row align-items-center">
-<<<<<<< HEAD
                 <!-- Plant Image -->
-                <div class="col-md-6 text-center">
-                    <img src="<?php echo $plant['image']; ?>" alt="<?php echo $plant['name']; ?>" class="img-fluid">
-                </div>
+               
+                
                 <!-- Plant Details -->
-=======
                 <div class="col-md-6 text-center position-relative">
                     <img src="<?php echo $plant['image']; ?>" alt="<?php echo $plant['name']; ?>" class="img-fluid plant-image">
                     <?php if ($plant['stock_quantity'] === null || $plant['stock_quantity'] == 0): ?>
@@ -115,14 +103,11 @@ if (isset($_GET['product_id'])) {
                         </div>
                     <?php endif; ?>
                 </div>
-
->>>>>>> 0ba8d69876ae697b55f2613ba5f97fa0045d2144
                 <div class="col-md-6">
                     <h1><?php echo $plant['name']; ?></h1>
                     <p><strong>Category:</strong> <?php echo $plant['category_name']; ?></p>
                     <p><?php echo $plant['description']; ?></p>
                     <h3 class="text-primary">Price: $<?php echo $plant['price']; ?></h3>
-<<<<<<< HEAD
                     
                     <!-- Add to Cart, Favorite, and Back Button -->
                     <div class="d-flex gap-2 mt-4 pb-5">
@@ -132,7 +117,6 @@ if (isset($_GET['product_id'])) {
                         </button>
                         <a href="product.php" class="btn btn-secondary px-4 py-2"><i class="fas fa-arrow-left me-2"></i>Back to Products</a>
                     </div>
-=======
                     <p><strong>Stock Quantity:</strong> 
                         <?php echo ($plant['stock_quantity'] > 0) ? $plant['stock_quantity'] : 'Out of Stock'; ?>
                     </p>
@@ -150,7 +134,8 @@ if (isset($_GET['product_id'])) {
                             <i class="fas fa-arrow-left me-2"></i>Back to Products
                         </a>
                     </form>
->>>>>>> 0ba8d69876ae697b55f2613ba5f97fa0045d2144
+
+                    
                 </div>
             </div>
         </div>

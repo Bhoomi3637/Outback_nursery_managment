@@ -93,7 +93,7 @@ $noResults = mysqli_num_rows($result) === 0;
                 while ($plant = mysqli_fetch_assoc($result)) {
                     $plantId = $plant['id'];
                     // Check if the plant is already in user's favorites
-                    $favQuery = "SELECT * FROM favorites WHERE cust_id = ? AND plant_id = ?";
+                    $favQuery = "SELECT * FROM favourites WHERE cust_id = ? AND plant_id = ?";
                     $favStmt = $conn->prepare($favQuery);
 
                     // Check if prepare was successful
