@@ -212,7 +212,14 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         </div>
     </div>
 </section>
-
+    <!-- Newsletter Section -->
+    <section class="newsletter py-4 bg-light text-center">
+        <h3>Subscribe to Our Newsletter</h3>
+        <form action="subscribe.php" method="POST" class="d-flex justify-content-center mt-3">
+            <input type="email" name="email" class="form-control w-50" placeholder="Enter your email" required>
+            <button type="submit" class="btn btn-success ms-2">Subscribe</button>
+        </form>
+    </section>
 
     <!-- Footer -->
     <footer class="text-white bg-success py-3">
