@@ -16,12 +16,14 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 <!-- Bootstrap CSS -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Bootstrap JS (including Popper.js) -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
 
 
     <title>Outback Nursery</title>
@@ -98,40 +100,43 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
 
     <!-- Product Section -->
-    <section id="product" class="products py-5">
+    <section  id="product" class="mb-5 products py-5">
     <div class="container">
-        <h2 class="text-center mb-5">Our Products</h2>
-        <div class="row">
+        <h2 class="text-center mb-5">Explore by Categories</h2>
+        <div class="row text-center">
             <div class="col-md-4">
-                <div class="card">
-                    <img src="image/plant1.jpeg" class="card-img-top" alt="Product 1">
-                    <div class="card-body text-center">
-                        <h3 class="card-title">Product 1</h3>
-                        <p class="card-text">Description of product 1.</p>
+                <a href="category.php?category=indoor" class="text-decoration-none">
+                    <div class="card">
+                        <img src="Image/indoor.jpg" class="card-img-top" alt="Indoor Plants">
+                        <div class="card-body">
+                            <h5 class="card-title">Indoor Plants</h5>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-md-4">
-                <div class="card">
-                    <img src="image/plant1.jpeg"  class="card-img-top" alt="Product 2">
-                    <div class="card-body text-center">
-                        <h3 class="card-title">Product 2</h3>
-                        <p class="card-text">Description of product 2.</p>
+                <a href="category.php?category=outdoor" class="text-decoration-none">
+                    <div class="card">
+                        <img src="Image/outdoor.jpg" class="card-img-top" alt="Outdoor Gardening">
+                        <div class="card-body">
+                            <h5 class="card-title">Outdoor Gardening</h5>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-md-4">
-                <div class="card">
-                    <img src="image/plant1.jpeg"  class="card-img-top" alt="Product 3">
-                    <div class="card-body text-center">
-                        <h3 class="card-title">Product 3</h3>
-                        <p class="card-text">Description of product 3.</p>
+                <a href="category.php?category=care" class="text-decoration-none">
+                    <div class="card">
+                        <img src="Image/care.jpg" class="card-img-top" alt="Plant Care Tips">
+                        <div class="card-body">
+                            <h5 class="card-title">Plant Care Tips</h5>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </div>
-</section>
+    </section>
 
     <!-- About Us Section -->
     <section id="about" class="about-us py-5">
@@ -221,11 +226,18 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         </div>
     </div>
 </section>
-
+<!-- Newsletter Section -->
+<section class="newsletter py-4 bg-light text-center">
+    <h3>Subscribe to Our Newsletter</h3>
+    <form action="subscribe.php" method="POST" class="d-flex justify-content-center mt-3">
+        <input type="email" name="email" class="form-control w-50" placeholder="Enter your email" required>
+        <button type="submit" class="btn btn-success ms-2">Subscribe</button>
+    </form>
+</section>
 
     <!-- Footer -->
-    <footer class="text-white">
-    <div class="container">
+    <footer class="text-white bg-success py-3">
+    <div class="container-fluid container text-center">
         <p class="mb-2">&copy; 2024 Outback Nursery. All rights reserved.</p>
         <div>
             <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>

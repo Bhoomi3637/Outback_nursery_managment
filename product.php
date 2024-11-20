@@ -21,16 +21,16 @@ $noResults = mysqli_num_rows($result) === 0;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- Bootstrap JS (including Popper.js) -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap JS (including Popper.js) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
     <title>Outback Nursery</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -46,16 +46,20 @@ $noResults = mysqli_num_rows($result) === 0;
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="user_home.php">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="product.php">Product</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="product.php">Product</a></li>
                     <li class="nav-item"><a class="nav-link" href="blog.php">Blog</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
-                    <li class="nav-item dropdown">
+ <!-- User profile dropdown -->
+ <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="image/user.png" alt="Profile" class="rounded-circle" width="30" height="30">
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li class="dropdown-item-text fw-bold">Hello, <?php echo htmlspecialchars($_SESSION["username"]); ?></li>
-                            <li><a class="dropdown-item" href="favorites.php">Favorites</a></li>
+                            <!-- Username placeholder -->
+                            <li class="dropdown-item-text fw-bold">Hello,  <?php echo htmlspecialchars($_SESSION["username"]); ?></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Favourites</a></li>
+                            <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                         </ul>
                     </li>
@@ -175,5 +179,18 @@ function toggleFavorite(plantId) {
     .catch(error => console.error('Error:', error));
 }
 </script>
+<!-- Footer -->
+<footer class="text-white bg-success py-3">
+    <div class="container text-center">
+        <p class="mb-2">&copy; 2024 Outback Nursery. All rights reserved.</p>
+        <div>
+            <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
