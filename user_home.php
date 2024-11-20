@@ -41,17 +41,26 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="user_home.php">Home</a>
+                <li class="nav-item">
+                        <a class="nav-link" href="adminhome.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="product.php">Product</a>
+                        <a class="nav-link" href="category.php">Add Categories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="blog.php">Blog</a>
+                        <a class="nav-link" href="view_categories.php">View Categories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.php">Contact</a>
+                        <a class="nav-link" href="add_plant.php">Add Plants</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="view_plants.php">View Plants</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="add_stock.php">Add Stocks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="view_stock.php">View Stocks</a>
                     </li>
                     <!-- User profile dropdown -->
                     <li class="nav-item dropdown">

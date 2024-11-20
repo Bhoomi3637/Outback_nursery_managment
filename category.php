@@ -62,23 +62,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
+                <li class="nav-item">
                         <a class="nav-link" href="adminhome.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="category.php">Categories</a>
+                        <a class="nav-link" href="category.php">Add Categories</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="view_categories.php">View Categories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="add_plant.php">Plants</a>
+                        <a class="nav-link" href="add_plant.php">Add Plants</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="view_plants.php">View Plants</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="add_stock.php">Stocks</a>
+                        <a class="nav-link" href="add_stock.php">Add Stocks</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="view_stock.php">View Stocks</a>

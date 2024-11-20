@@ -1,7 +1,7 @@
 <?php
 require 'db.php';
 
-$admin_username = 'admin1'; // Set desired admin username
+$admin_username = 'admin'; // Set desired admin username
 $admin_password = 'admin123'; // Set desired admin password
 $hashed_password = password_hash($admin_password, PASSWORD_DEFAULT);
 
