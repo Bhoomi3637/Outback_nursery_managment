@@ -1,3 +1,12 @@
+<?php
+session_start();
+// For testing, set a dummy username if it doesn't exist.
+// Remove this line in production.
+if (!isset($_SESSION["username"])) {
+    $_SESSION["username"] = "TestUser"; 
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
