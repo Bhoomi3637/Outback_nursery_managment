@@ -48,7 +48,6 @@ $noResults = mysqli_num_rows($result) === 0;
                     <li class="nav-item"><a class="nav-link" href="user_home.php">Home</a></li>
                     <li class="nav-item"><a class="nav-link active" href="product.php">Product</a></li>
                     <li class="nav-item"><a class="nav-link" href="blog.php">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="profile.php">Profile</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
  <!-- User profile dropdown -->
  <li class="nav-item dropdown">
@@ -60,8 +59,6 @@ $noResults = mysqli_num_rows($result) === 0;
                             <li class="dropdown-item-text fw-bold">Hello,  <?php echo htmlspecialchars($_SESSION["username"]); ?></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#">Favourites</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="profile.php">Profile</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                         </ul>

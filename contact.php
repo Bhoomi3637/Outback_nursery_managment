@@ -37,8 +37,9 @@ session_start();
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"> <a class="nav-link" href="user_home.php">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="product.php">Product</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="blog.php">Blog</a></li>
                     <li class="nav-item"><a class="nav-link active" href="contact.php">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="profile.php">Profile</a></li>
+  
                     <!-- User profile dropdown -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
