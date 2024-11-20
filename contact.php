@@ -22,8 +22,8 @@ session_start();
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <header>
+ <!-- Navigation -->
+ <header>
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
             <!-- Brand/logo -->
@@ -35,11 +35,18 @@ session_start();
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"> <a class="nav-link" href="user_home.php">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="product.php">Product</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="blog.php">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="contact.php">Contact</a></li>
-  
+                    <li class="nav-item">
+                        <a class="nav-link" href="user_home.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="product.php">Product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.php">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.php">Contact</a>
+                    </li>
                     <!-- User profile dropdown -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -51,11 +58,8 @@ session_start();
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#">Favourites</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="profile.php">Profile</a></li>
-                            <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                         </ul>
-                    </li>
                     </li>
                 </ul>
             </div>

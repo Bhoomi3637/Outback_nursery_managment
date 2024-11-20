@@ -28,23 +28,33 @@ if (!isset($_SESSION["username"])) {
 </head>
 <body>
 
-<!-- Header -->
+<!-- Navigation -->
 <header>
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Outback Nursery</a>
+            <!-- Brand/logo -->
+            <a class="navbar-brand" href="#">
+                Outback Nursery
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="user_home.php">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="product.php">Product</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="blog.php">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="profile.php">Profile</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
-                                   <!-- User profile dropdown -->
-                                   <li class="nav-item dropdown">
+                    <li class="nav-item">
+                        <a class="nav-link" href="user_home.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="product.php">Product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.php">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.php">Contact</a>
+                    </li>
+                    <!-- User profile dropdown -->
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="image/user.png" alt="Profile" class="rounded-circle" width="30" height="30">
                         </a>
