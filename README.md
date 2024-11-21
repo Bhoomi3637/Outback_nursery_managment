@@ -13,9 +13,9 @@
   - Secure login ensures that only authorized admins can access the dashboard.
 - **Add New Admin**:
     Admins can add new admin accounts by entering a username and password in the admin management file (add-admin.php).
-    **Default Admin Credentials:**
-    * Username: admin
-    * Password: admin123
+    * **Default Admin Credentials:**
+      * Username: admin
+      * Password: admin123
 
 ### 👥 User Panel
 - **User Authentication**: 
@@ -100,6 +100,15 @@
     ```
 
    `http://localhost/outlook-nursery-management`
+
+### 5. **Login to Website**   
+  * User Panel:
+     * Users can register on the website by creating an account and logging in with their unique username and password.
+  * Admin Panel:
+    * The admin panel is pre-configured with default credentials for secure access:
+        * Username: admin
+        * Password: admin123
+           
   
 ## 🌟 Usage
      
