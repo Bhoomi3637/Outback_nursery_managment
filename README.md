@@ -11,6 +11,11 @@
   - Add, edit, view, and delete products, categories, and plant inventory.
 - **Admin Authentication**: 
   - Secure login ensures that only authorized admins can access the dashboard.
+- **Add New Admin**:
+    Admins can add new admin accounts by entering a username and password in the admin management file (admin.php).
+    Default Admin Credentials:
+    Username: Admin
+    Password: admin123
 
 ### 👥 User Panel
 - **User Authentication**: 
