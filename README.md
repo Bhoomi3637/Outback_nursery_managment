@@ -101,7 +101,7 @@
 
    `http://localhost/outlook-nursery-management`
 
-### 5. **Login to Website**   
+### 7. **Login to Website**   
   * User Panel:
      * Users can register on the website by creating an account and logging in with their unique username and password.
   * Admin Panel:
