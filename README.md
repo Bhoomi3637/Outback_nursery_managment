@@ -12,10 +12,10 @@
 - **Admin Authentication**: 
   - Secure login ensures that only authorized admins can access the dashboard.
 - **Add New Admin**:
-    Admins can add new admin accounts by entering a username and password in the admin management file (admin.php).
-    Default Admin Credentials:
-    Username: Admin
-    Password: admin123
+    Admins can add new admin accounts by entering a username and password in the admin management file (add-admin.php).
+    **Default Admin Credentials:**
+    * Username: admin
+    * Password: admin123
 
 ### 👥 User Panel
 - **User Authentication**: 
@@ -114,6 +114,25 @@
           * Plants (add, edit, view, delete)
           * Categories (add, edit, view, delete)
           * Stock (add, edit, view, delete)
+ ## Functionality:
+   * **🛠️ Admin Panel**
+        * The admin panel allows admins to manage the website's data (products, categories, and inventory) through a user-friendly interface.
+   * **🔄 CRUD Operations:**
+          
+           
+     * Create: Admin can add new products, categories, and plant inventory.
+     * Read: Admin can view existing products, categories, and inventory in the dashboard.
+     * Update: Admin can edit details about products, categories, and inventory.
+     * Delete: Admin can remove products, categories, and inventory from the system.
+         
+   * **🔐 Admin Authentication:**
+      *  Admins need to enter a secure username and password to access the admin dashboard, ensuring that only authorized personnel can make changes.
+   * **🖥️ User Panel:**
+     * The user panel allows users to navigate the site, browse through products, and manage their own account settings.
+          
+   * **🔑 User Authentication**:
+      *  Users can sign up by providing necessary details (such as email, password), then log in with those credentials to access their personalized account.
+ 
 
  ## 💻 Technologies Used
   * **PHP**: Backend logic and server-side scripting.
