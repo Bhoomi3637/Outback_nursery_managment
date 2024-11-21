@@ -90,6 +90,7 @@ if (!$result) {
                     echo "<td>
                             <a href='edit_category.php?id=" . $row['id'] . "' class='btn btn-warning btn-sm'>Edit</a>
                             <button onclick='deleteCategory(" . $row['id'] . ")' class='btn btn-danger btn-sm'>Delete</button>
+                            
                           </td>";
                     echo "</tr>";
                 }
@@ -146,7 +147,35 @@ if (!$result) {
         </div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+<script>
+  // JavaScript function to delete category
+  function deleteCategory(categoryId) {
+    // Confirm if the user really wants to delete the category
+    if (confirm("Are you sure you want to delete this category?")) {
+      // Send AJAX request to delete_category.php with the category ID
+      $.ajax({
+        url: 'delete_category.php',   // PHP script to handle deletion
+        type: 'GET',
+        data: { id: categoryId },     // Passing category ID as a parameter
+        success: function(response) {
+          // If the deletion is successful, show a success message or update UI
+          if (response === 'success') {
+            alert('Category deleted successfully');
+            // Optionally, you can reload the page or remove the deleted row from the table
+            location.reload();  // Reload the page
+          } else {
+            alert('Error deleting category');
+          }
+        },
+        error: function() {
+          alert('There was an error with the request');
+        }
+      });
+    }
+  }
+</script>
 
    
 </body>
