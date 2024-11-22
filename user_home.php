@@ -97,7 +97,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         <h2 class="text-center mb-5">Explore by Categories</h2>
         <div class="row text-center">
             <div class="col-md-4">
-                <a href="category.php?category=indoor" class="text-decoration-none">
+                <a href="#" class="text-decoration-none">
                     <div class="card">
                         <img src="Image/indoor.jpg" class="card-img-top" alt="Indoor Plants">
                         <div class="card-body">
@@ -107,7 +107,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                 </a>
             </div>
             <div class="col-md-4">
-                <a href="category.php?category=outdoor" class="text-decoration-none">
+                <a href="#" class="text-decoration-none">
                     <div class="card">
                         <img src="Image/outdoor.jpg" class="card-img-top" alt="Outdoor Gardening">
                         <div class="card-body">
@@ -117,7 +117,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                 </a>
             </div>
             <div class="col-md-4">
-                <a href="category.php?category=care" class="text-decoration-none">
+                <a href="#" class="text-decoration-none">
                     <div class="card">
                         <img src="Image/care.jpg" class="card-img-top" alt="Plant Care Tips">
                         <div class="card-body">

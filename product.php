@@ -130,9 +130,10 @@ $noResults = mysqli_num_rows($result) === 0;
                                 <button class="btn btn-primary add-to-cart">
                                     <a href="product_detail.php?product_id=<?php echo $plantId; ?>">View More</a>
                                 </button>
-                                <button class="btn btn-secondary toggle-favorite" onclick="toggleFavorite(<?php echo $plantId; ?>)">
-                                    <?php echo $isFavorite ? 'Remove from Favorites' : 'Add to Favorites'; ?>
-                                </button>
+                                <!-- <button class="btn btn-secondary toggle-favorite" onclick="toggleFavorite(<?php echo $plantId; ?>)">
+                                    <?php
+                                    //  echo $isFavorite ? 'Remove from Favorites' : 'Add to Favorites'; ?>
+                                </button> -->
                             </div>
                         </div>
                     </div>

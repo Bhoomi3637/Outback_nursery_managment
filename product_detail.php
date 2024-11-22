@@ -119,13 +119,13 @@ if (isset($_GET['product_id'])) {
                     <h3 class="text-primary">Price: $<?php echo $plant['price']; ?></h3>
                     
                     <!-- Add to Cart, Favorite, and Back Button -->
-                    <div class="d-flex gap-2 mt-4 pb-5">
+                    <!-- <div class="d-flex gap-2 mt-4 pb-5">
                         <button class="btn btn-success px-4 py-2"><i class="fas fa-shopping-cart me-2"></i>Add to Cart</button>
                         <button class="btn btn-secondary toggle-favorite" onclick="toggleFavorite(<?php echo $productId; ?>)">
                             <?php echo $isFavorite ? 'Remove from Favorites' : 'Add to Favorites'; ?>
                         </button>
                         <a href="product.php" class="btn btn-secondary px-4 py-2"><i class="fas fa-arrow-left me-2"></i>Back to Products</a>
-                    </div>
+                    </div> -->
                     <p><strong>Stock Quantity:</strong> 
                         <?php echo ($plant['stock_quantity'] > 0) ? $plant['stock_quantity'] : 'Out of Stock'; ?>
                     </p>
@@ -136,7 +136,7 @@ if (isset($_GET['product_id'])) {
                             <input type="number" name="quantity" value="1" min="1" max="<?php echo $plant['stock_quantity']; ?>" class="form-control w-25">
                             <input type="hidden" name="plant_id" value="<?php echo $plant['id']; ?>">
                             <button type="submit" class="btn btn-success px-4 py-2">
-                                <i class="fas fa-shopping-cart me-2"></i>Add to Cart
+                                <i class="fas fa-shopping-cart me-2"></i>Add to Favourites
                             </button>
                         <?php endif; ?>
                         <a href="product.php" class="btn btn-secondary px-4 py-2">
