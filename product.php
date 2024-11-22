@@ -145,18 +145,6 @@ $noResults = mysqli_num_rows($result) === 0;
     </div>
 </section>
 
-<footer class="text-white">
-    <div class="container">
-        <p class="mb-2">&copy; 2024 Outback Nursery. All rights reserved.</p>
-        <div>
-            <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-    </div>
-</footer>
-
 <script>
 function toggleFavorite(plantId) {
     fetch('toggle_favorite.php', {
@@ -192,7 +180,7 @@ function toggleFavorite(plantId) {
 }
 </script>
 <!-- Footer -->
-<!-- <footer class="text-white bg-success py-3">
+<footer class="text-white bg-success py-3">
     <div class="container text-center">
         <p class="mb-2">&copy; 2024 Outback Nursery. All rights reserved.</p>
         <div>
@@ -202,7 +190,7 @@ function toggleFavorite(plantId) {
             <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
         </div>
     </div>
-</footer> -->
+</footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
