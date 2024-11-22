@@ -22,6 +22,8 @@
   - Sign-up and login functionality for users to create personalized accounts.
 - **View Products**: 
   - Users can browse plants and categories added by the admin.
+- **Search Products**:
+  - Users can search for plants by entering the plant name in the input field.
 - **Favorites**: 
   - Users can add products to their favorites for quick access and better organization.
 
@@ -133,6 +135,8 @@
      * Read: Admin can view existing products, categories, and inventory in the dashboard.
      * Update: Admin can edit details about products, categories, and inventory.
      * Delete: Admin can remove products, categories, and inventory from the system.
+   * **🔍 Search Plants**
+        * Users can search for plants by entering the plant name in the input field.    
          
    * **🔐 Admin Authentication:**
       *  Admins need to enter a secure username and password to access the admin dashboard, ensuring that only authorized personnel can make changes.
