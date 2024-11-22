@@ -1,7 +1,8 @@
 <?php
-session_start(); 
-require 'db.php';
+session_start();
 
+
+require 'db.php';
 // Check if the product_id is passed in the URL
 if (isset($_GET['product_id'])) {
     $productId = $_GET['product_id'];
@@ -85,6 +86,7 @@ if (isset($_GET['product_id'])) {
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <!-- Username placeholder -->
                             <li class="dropdown-item-text fw-bold">Hello,  <?php echo htmlspecialchars($_SESSION["username"]); ?></li>
+                            <!-- <li class="dropdown-item-text fw-bold">Hello,  <?php echo htmlspecialchars($_SESSION["Cust_id"]); ?></li> -->
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#">Favourites</a></li>
                             <li><hr class="dropdown-divider"></li>
@@ -108,7 +110,9 @@ if (isset($_GET['product_id'])) {
                     <img src="<?php echo $plant['image']; ?>" alt="<?php echo $plant['name']; ?>" class="img-fluid plant-image">
                     <?php if ($plant['stock_quantity'] === null || $plant['stock_quantity'] == 0): ?>
                         <div class="out-of-stock-badge position-absolute top-50 start-50 translate-middle">
-                            <span>Out of Stock</span>
+                            <span class="text-danger">Out of Stock</span>
+                            <?php 
+                            // echo $user_id; ?>
                         </div>
                     <?php endif; ?>
                 </div>
@@ -144,7 +148,7 @@ if (isset($_GET['product_id'])) {
                         </a>
                     </form>
 
-                    
+                
                 </div>
             </div>
         </div>
