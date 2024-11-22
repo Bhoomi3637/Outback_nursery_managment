@@ -1,77 +1,70 @@
 <?php
-require 'db.php'; // Include database connection
+// Include configuration and connection file
+require_once 'config.php';
+require 'db.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Trim inputs to remove unnecessary spaces
-    $username = trim($_POST["username"]);
-    $email = trim($_POST["email"]);
-    $password = trim($_POST["password"]);
-    $confirm_password = trim($_POST["confirm_password"]);
+// Initialize variables
+$errors = [];
+$username = $email = $phone = $password = $confirm_password = '';
 
-    // Initialize an array to store errors
-    $errors = [];
+// Handle form submission
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Collect form data
+    $username = trim($_POST['username']);
+    $email = trim($_POST['email']);
+    $phone = trim($_POST['phone']);
+    $password = $_POST['password'];
+    $confirm_password = $_POST['confirm_password'];
 
-    // Validate username
-    if (empty($username)) {
-        $errors[] = "Username is required.";
+    // Validate inputs
+    if (empty($username) || empty($email) || empty($phone) || empty($password) || empty($confirm_password)) {
+        $errors[] = 'All fields are required.';
+    }
+    if ($password !== $confirm_password) {
+        $errors[] = 'Passwords do not match.';
+    }
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors[] = 'Invalid email format.';
+    }
+    if (!preg_match('/^[0-9]{10}$/', $phone)) {
+        $errors[] = 'Invalid phone number. It should be 10 digits.';
     }
 
-    // Validate email
-    if (empty($email)) {
-        $errors[] = "Email is required.";
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors[] = "Invalid email format.";
-    }
-
-    // Validate password
-    if (empty($password)) {
-        $errors[] = "Password is required.";
-    } elseif (strlen($password) < 6) {
-        $errors[] = "Password must be at least 6 characters long.";
-    }
-
-    // Validate password confirmation
-    if (empty($confirm_password)) {
-        $errors[] = "Please confirm your password.";
-    } elseif ($password !== $confirm_password) {
-        $errors[] = "Passwords do not match.";
-    }
-
-    // Proceed if there are no validation errors
+    // If no errors, insert data into the database
     if (empty($errors)) {
-        // Check if username or email already exists
-        $sql = "SELECT * FROM tbl_registration WHERE username = ? OR email = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ss", $username, $email);
-        $stmt->execute();
-        $result = $stmt->get_result();
+        // Hash the password
+        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
-        if ($result->num_rows > 0) {
-            $errors[] = "Username or email is already taken.";
-        } else {
-            // If username and email are not taken, insert the new user into the database
-            $password_hash = password_hash($password, PASSWORD_DEFAULT); // Hash the password for security
-            $sql = "INSERT INTO tbl_registration (username, email, password) VALUES (?, ?, ?)";
-            $stmt = $conn->prepare($sql);
-            $stmt->bind_param("sss", $username, $email, $password_hash);
-
+        // Insert into tbl_registration table
+        $query = "INSERT INTO tbl_registration (email, phone) VALUES (?, ?)";
+        if ($stmt = $conn->prepare($query)) {
+            $stmt->bind_param("ss", $email, $phone);
+            
             if ($stmt->execute()) {
-                // Redirect to the login page with a success message
-                header("Location: login.php?message=success");
-                exit();
+                // Get the last inserted customer ID
+                $cust_id = $conn->insert_id;
+
+                // Insert into tbl_login table
+                $query = "INSERT INTO tbl_login (Cust_id, Username, password) VALUES (?, ?, ?)";
+                if ($stmt = $conn->prepare($query)) {
+                    $stmt->bind_param("iss", $cust_id, $username, $hashed_password);
+
+                    if ($stmt->execute()) {
+                        // Redirect to login page after successful sign-up
+                        header('Location: index.php');
+                        exit();
+                    } else {
+                        $errors[] = 'Error inserting into login table.';
+                    }
+                }
             } else {
-                $errors[] = "Something went wrong. Please try again.";
+                $errors[] = 'Error inserting into registration table.';
             }
+        } else {
+            $errors[] = 'Error preparing the SQL query.';
         }
-
-        $stmt->close();
     }
-
-    $conn->close();
 }
-// Debugging: Check if the form data is received
-// var_dump($_POST);
-
 ?>
 
 <!DOCTYPE html>
@@ -109,7 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                     <div class="mb-3">
                         <label for="signup-phn" class="form-label">Phone:</label>
-                        <input type="phone" class="form-control" id="signup-phone" required>
+                        <input type="text" name="phone" class="form-control" id="signup-phone" value="<?php echo isset($phone) ? htmlspecialchars($phone) : ''; ?>" required>
                     </div>
                     <div class="mb-3">
                         <label for="signup-password" class="form-label">Password:</label>

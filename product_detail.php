@@ -1,13 +1,14 @@
 <?php
 session_start();
 
-
+// Include database connection
 require 'db.php';
-// Check if the product_id is passed in the URL
+
+// Check if product_id is passed in the URL
 if (isset($_GET['product_id'])) {
     $productId = $_GET['product_id'];
 
-    // Fetch plant details including category and stock quantity using JOIN
+    // Fetch plant details, including category and stock quantity using JOIN
     $query = "
         SELECT plant.*, category.name AS category_name, stock.quantity AS stock_quantity
         FROM plant 
@@ -57,10 +58,7 @@ if (isset($_GET['product_id'])) {
     <header>
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-            <!-- Brand/logo -->
-            <a class="navbar-brand" href="#">
-                Outback Nursery
-            </a>
+            <a class="navbar-brand" href="#">Outback Nursery</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -70,7 +68,7 @@ if (isset($_GET['product_id'])) {
                         <a class="nav-link" href="user_home.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="product.php">Product</a>
+                        <a class="nav-link" href="product.php">Products</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="blog.php">Blog</a>
@@ -78,15 +76,12 @@ if (isset($_GET['product_id'])) {
                     <li class="nav-item">
                         <a class="nav-link" href="contact.php">Contact</a>
                     </li>
-                    <!-- User profile dropdown -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="image/user.png" alt="Profile" class="rounded-circle" width="30" height="30">
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <!-- Username placeholder -->
                             <li class="dropdown-item-text fw-bold">Hello,  <?php echo htmlspecialchars($_SESSION["username"]); ?></li>
-                            <!-- <li class="dropdown-item-text fw-bold">Hello,  <?php echo htmlspecialchars($_SESSION["Cust_id"]); ?></li> -->
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#">Favourites</a></li>
                             <li><hr class="dropdown-divider"></li>
@@ -102,17 +97,11 @@ if (isset($_GET['product_id'])) {
     <section class="mt-5 pt-5">
         <div class="container mt-5">
             <div class="row align-items-center">
-                <!-- Plant Image -->
-               
-                
-                <!-- Plant Details -->
                 <div class="col-md-6 text-center position-relative">
                     <img src="<?php echo $plant['image']; ?>" alt="<?php echo $plant['name']; ?>" class="img-fluid plant-image">
                     <?php if ($plant['stock_quantity'] === null || $plant['stock_quantity'] == 0): ?>
                         <div class="out-of-stock-badge position-absolute top-50 start-50 translate-middle">
                             <span class="text-danger">Out of Stock</span>
-                            <?php 
-                            // echo $user_id; ?>
                         </div>
                     <?php endif; ?>
                 </div>
@@ -121,34 +110,22 @@ if (isset($_GET['product_id'])) {
                     <p><strong>Category:</strong> <?php echo $plant['category_name']; ?></p>
                     <p><?php echo $plant['description']; ?></p>
                     <h3 class="text-primary">Price: $<?php echo $plant['price']; ?></h3>
-                    
-                    <!-- Add to Cart, Favorite, and Back Button -->
-                    <!-- <div class="d-flex gap-2 mt-4 pb-5">
-                        <button class="btn btn-success px-4 py-2"><i class="fas fa-shopping-cart me-2"></i>Add to Cart</button>
-                        <button class="btn btn-secondary toggle-favorite" onclick="toggleFavorite(<?php echo $productId; ?>)">
-                            <?php echo $isFavorite ? 'Remove from Favorites' : 'Add to Favorites'; ?>
-                        </button>
-                        <a href="product.php" class="btn btn-secondary px-4 py-2"><i class="fas fa-arrow-left me-2"></i>Back to Products</a>
-                    </div> -->
                     <p><strong>Stock Quantity:</strong> 
                         <?php echo ($plant['stock_quantity'] > 0) ? $plant['stock_quantity'] : 'Out of Stock'; ?>
                     </p>
 
-                    <!-- Add to Cart Form -->
-                    <form method="POST" action="add_to_favorites.php" class="d-flex gap-2 mt-4 pb-5">
+                    <form method="POST" action="add_to_favourites.php" class="d-flex gap-2 mt-4 pb-5">
                         <?php if ($plant['stock_quantity'] > 0): ?>
                             <input type="number" name="quantity" value="1" min="1" max="<?php echo $plant['stock_quantity']; ?>" class="form-control w-25">
                             <input type="hidden" name="plant_id" value="<?php echo $plant['id']; ?>">
                             <button type="submit" class="btn btn-success px-4 py-2">
-                                <i class="fas fa-shopping-cart me-2"></i>Add to Favourites
+                                <i class="fas fa-heart me-2"></i>Add to Favourites
                             </button>
                         <?php endif; ?>
                         <a href="product.php" class="btn btn-secondary px-4 py-2">
                             <i class="fas fa-arrow-left me-2"></i>Back to Products
                         </a>
                     </form>
-
-                
                 </div>
             </div>
         </div>
@@ -166,23 +143,5 @@ if (isset($_GET['product_id'])) {
         </div>
     </footer>
 
-    <script>
-    function toggleFavorite(plantId) {
-        fetch('toggle_favorite.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ plant_id: plantId })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                const btn = document.querySelector('.toggle-favorite');
-                btn.textContent = data.is_favorite ? 'Remove from Favorites' : 'Add to Favorites';
-            }
-        });
-    }
-    </script>
 </body>
 </html>
