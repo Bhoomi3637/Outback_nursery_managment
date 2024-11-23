@@ -55,7 +55,7 @@ if (!isset($_SESSION["username"])) {
                             <!-- Username placeholder -->
                             <li class="dropdown-item-text fw-bold">Hello,  <?php echo htmlspecialchars($_SESSION["username"]); ?></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Favourites</a></li>
+                            <li><a class="dropdown-item" href="favourites.php">Favourites</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                         </ul>
