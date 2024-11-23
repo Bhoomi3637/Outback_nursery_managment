@@ -13,37 +13,64 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST["username"]);
     $password = trim($_POST["password"]);
 
-    // Check if the username exists in the tbl_login table
-    $sql = "SELECT * FROM tbl_login WHERE Username = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    // Check if the username exists in the tbl_admin table
+    $sql_admin = "SELECT * FROM tbl_admin WHERE username = ?";
+    $stmt_admin = $conn->prepare($sql_admin);
+    $stmt_admin->bind_param("s", $username);
+    $stmt_admin->execute();
+    $result_admin = $stmt_admin->get_result();
 
-    if ($result->num_rows > 0) {
-        $user = $result->fetch_assoc();
+    if ($result_admin->num_rows > 0) {
+        // Admin user found, verify password
+        $user = $result_admin->fetch_assoc();
 
-        // Verify the password using password_verify
+        // Verify password against the hashed password in the database
         if (password_verify($password, $user['password'])) {
-            // Password is correct, start a session
+            // Admin login is successful, start a session
             $_SESSION["loggedin"] = true;
             $_SESSION["username"] = $username;
+            $_SESSION['user_id'] = $user['admin_id']; // Storing Admin_id
 
-            // Store the Cust_id in the session
-            $_SESSION['user_id'] = $user['Cust_id']; // Storing Cust_id
-
-            // Redirect to the user's homepage
-            header("Location: user_home.php");
+            // Redirect to the admin's homepage
+            header("Location: adminhome.php");
             exit();
         } else {
             $message = "Invalid password.";
         }
     } else {
-        $message = "Invalid username.";
+        // Check if the username exists in the tbl_user table
+        $sql_user = "SELECT * FROM tbl_login WHERE username = ?";
+        $stmt_user = $conn->prepare($sql_user);
+        $stmt_user->bind_param("s", $username);
+        $stmt_user->execute();
+        $result_user = $stmt_user->get_result();
+
+        if ($result_user->num_rows > 0) {
+            // Regular user found, verify password
+            $user = $result_user->fetch_assoc();
+
+            // Verify password against the hashed password in the database
+            if (password_verify($password, $user['password'])) {
+                // User login is successful, start a session
+                $_SESSION["loggedin"] = true;
+                $_SESSION["username"] = $username;
+                $_SESSION['user_id'] = $user['Cust_id']; // Storing User_id
+
+                // Redirect to the user's homepage
+                header("Location: user_home.php");
+                exit();
+            } else {
+                $message = "Invalid password.";
+            }
+        } else {
+            $message = "Invalid username.";
+        }
+
+        $stmt_user->close(); // Close the statement for the user query
     }
 
-    $stmt->close();
-    $conn->close();
+    $stmt_admin->close(); // Close the statement for the admin query
+    $conn->close(); // Close the database connection
 }
 ?>
 
