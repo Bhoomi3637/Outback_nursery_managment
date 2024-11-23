@@ -52,53 +52,58 @@ if (isset($_GET['product_id'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <title>Outback Nursery</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .blurred {
+            filter: blur(5px);
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
     <header>
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Outback Nursery</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="user_home.php">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="product.php">Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="blog.php">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.php">Contact</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="image/user.png" alt="Profile" class="rounded-circle" width="30" height="30">
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li class="dropdown-item-text fw-bold">Hello,  <?php echo htmlspecialchars($_SESSION["username"]); ?></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="favourites.php">Favourites</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="logout.php">Logout</a></li>
-                        </ul>
-                    </li>
-                </ul>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Outback Nursery</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="user_home.php">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="product.php">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.php">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.php">Contact</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="image/user.png" alt="Profile" class="rounded-circle" width="30" height="30">
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <li class="dropdown-item-text fw-bold">Hello,  <?php echo htmlspecialchars($_SESSION["username"]); ?></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="favourites.php">Favourites</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-</header>
+        </nav>
+    </header>
 
     <section class="mt-5 pt-5">
         <div class="container mt-5">
             <div class="row align-items-center">
                 <div class="col-md-6 text-center position-relative">
-                    <img src="<?php echo $plant['image']; ?>" alt="<?php echo $plant['name']; ?>" class="img-fluid plant-image">
+                    <img src="<?php echo $plant['image']; ?>" alt="<?php echo $plant['name']; ?>" class="img-fluid plant-image <?php echo ($plant['stock_quantity'] === null || $plant['stock_quantity'] == 0) ? 'blurred' : ''; ?>">
                     <?php if ($plant['stock_quantity'] === null || $plant['stock_quantity'] == 0): ?>
                         <div class="out-of-stock-badge position-absolute top-50 start-50 translate-middle">
                             <span class="text-danger">Out of Stock</span>
@@ -130,30 +135,29 @@ if (isset($_GET['product_id'])) {
             </div>
         </div>
     </section>
+
     <!-- Success Modal -->
-<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="successModalLabel">Notification</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <?php 
-                // session_start(); 
-                if (isset($_SESSION['success_message'])) { 
-                    echo htmlspecialchars($_SESSION['success_message']); 
-                    unset($_SESSION['success_message']); // Clear the message after showing
-                } 
-                ?>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">Notification</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <?php 
+                    if (isset($_SESSION['success_message'])) { 
+                        echo htmlspecialchars($_SESSION['success_message']); 
+                        unset($_SESSION['success_message']); // Clear the message after showing
+                    } 
+                    ?>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
 
     <footer class="text-white plant-footer">
         <div class="container">
@@ -166,6 +170,7 @@ if (isset($_GET['product_id'])) {
             </div>
         </div>
     </footer>
+
     <script>
     document.addEventListener("DOMContentLoaded", function () {
         // Automatically show the modal if success message exists
@@ -175,7 +180,7 @@ if (isset($_GET['product_id'])) {
             modal.show();
         }
     });
-</script>
+    </script>
 
 </body>
 </html>
