@@ -83,7 +83,7 @@ if (isset($_GET['product_id'])) {
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li class="dropdown-item-text fw-bold">Hello,  <?php echo htmlspecialchars($_SESSION["username"]); ?></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Favourites</a></li>
+                            <li><a class="dropdown-item" href="favourites.php">Favourites</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                         </ul>
@@ -130,6 +130,30 @@ if (isset($_GET['product_id'])) {
             </div>
         </div>
     </section>
+    <!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="successModalLabel">Notification</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <?php 
+                // session_start(); 
+                if (isset($_SESSION['success_message'])) { 
+                    echo htmlspecialchars($_SESSION['success_message']); 
+                    unset($_SESSION['success_message']); // Clear the message after showing
+                } 
+                ?>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
     <footer class="text-white plant-footer">
         <div class="container">
@@ -142,6 +166,16 @@ if (isset($_GET['product_id'])) {
             </div>
         </div>
     </footer>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Automatically show the modal if success message exists
+        var successModal = document.getElementById('successModal');
+        if (successModal.querySelector('.modal-body').textContent.trim() !== "") {
+            var modal = new bootstrap.Modal(successModal);
+            modal.show();
+        }
+    });
+</script>
 
 </body>
 </html>
