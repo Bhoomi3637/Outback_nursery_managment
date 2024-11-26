@@ -22,14 +22,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result_admin->num_rows > 0) {
         // Admin user found, verify password
-        $user = $result_admin->fetch_assoc();
+        $admin = $result_admin->fetch_assoc();
 
         // Verify password against the hashed password in the database
-        if ($password === $user['password'])  {
+        if ($password === $admin['password'])  {
             // Admin login is successful, start a session
             $_SESSION["loggedin"] = true;
             $_SESSION["username"] = $username;
-            $_SESSION['user_id'] = $user['Admin_id']; // Storing Admin_id
+            $_SESSION['user_id'] = $admin['admin_id']; // Storing Admin_id
 
             // Redirect to the admin's homepage
             header("Location: adminhome.php");
