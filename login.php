@@ -25,11 +25,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = $result_admin->fetch_assoc();
 
         // Verify password against the hashed password in the database
-        if (password_verify($password, $user['password'])) {
+        if ($password === $user['password'])  {
             // Admin login is successful, start a session
             $_SESSION["loggedin"] = true;
             $_SESSION["username"] = $username;
-            $_SESSION['user_id'] = $user['admin_id']; // Storing Admin_id
+            $_SESSION['user_id'] = $user['Admin_id']; // Storing Admin_id
 
             // Redirect to the admin's homepage
             header("Location: adminhome.php");

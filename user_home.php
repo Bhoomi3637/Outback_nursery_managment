@@ -1,5 +1,6 @@
 <?php
 session_start(); // Start the session
+
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     // If not logged in, redirect to the login page
     header("Location: login.php");

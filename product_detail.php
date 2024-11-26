@@ -34,7 +34,6 @@ if (isset($_GET['product_id'])) {
     $favStmt->bind_param('ii', $userId, $productId);
     $favStmt->execute();
     $isFavorite = $favStmt->get_result()->num_rows > 0;
-
 } else {
     echo "No plant selected!";
     exit();
@@ -43,6 +42,7 @@ if (isset($_GET['product_id'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,6 +58,7 @@ if (isset($_GET['product_id'])) {
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <header>
@@ -86,10 +87,14 @@ if (isset($_GET['product_id'])) {
                                 <img src="image/user.png" alt="Profile" class="rounded-circle" width="30" height="30">
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <li class="dropdown-item-text fw-bold">Hello,  <?php echo htmlspecialchars($_SESSION["username"]); ?></li>
-                                <li><hr class="dropdown-divider"></li>
+                                <li class="dropdown-item-text fw-bold">Hello, <?php echo htmlspecialchars($_SESSION["username"]); ?></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
                                 <li><a class="dropdown-item" href="favourites.php">Favourites</a></li>
-                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
                                 <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                             </ul>
                         </li>
@@ -115,7 +120,7 @@ if (isset($_GET['product_id'])) {
                     <p><strong>Category:</strong> <?php echo $plant['category_name']; ?></p>
                     <p><?php echo $plant['description']; ?></p>
                     <h3 class="text-primary">Price: $<?php echo $plant['price']; ?></h3>
-                    <p><strong>Stock Quantity:</strong> 
+                    <p><strong>Stock Quantity:</strong>
                         <?php echo ($plant['stock_quantity'] > 0) ? $plant['stock_quantity'] : 'Out of Stock'; ?>
                     </p>
 
@@ -145,11 +150,11 @@ if (isset($_GET['product_id'])) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <?php 
-                    if (isset($_SESSION['success_message'])) { 
-                        echo htmlspecialchars($_SESSION['success_message']); 
+                    <?php
+                    if (isset($_SESSION['success_message'])) {
+                        echo htmlspecialchars($_SESSION['success_message']);
                         unset($_SESSION['success_message']); // Clear the message after showing
-                    } 
+                    }
                     ?>
                 </div>
                 <div class="modal-footer">
@@ -172,15 +177,16 @@ if (isset($_GET['product_id'])) {
     </footer>
 
     <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Automatically show the modal if success message exists
-        var successModal = document.getElementById('successModal');
-        if (successModal.querySelector('.modal-body').textContent.trim() !== "") {
-            var modal = new bootstrap.Modal(successModal);
-            modal.show();
-        }
-    });
+        document.addEventListener("DOMContentLoaded", function() {
+            // Automatically show the modal if success message exists
+            var successModal = document.getElementById('successModal');
+            if (successModal.querySelector('.modal-body').textContent.trim() !== "") {
+                var modal = new bootstrap.Modal(successModal);
+                modal.show();
+            }
+        });
     </script>
 
 </body>
+
 </html>
