@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2024 at 08:28 PM
+-- Generation Time: Nov 27, 2024 at 12:42 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -56,8 +56,28 @@ INSERT INTO `category` (`id`, `name`) VALUES
 CREATE TABLE `favourites` (
   `fav_id` int(11) NOT NULL,
   `cust_id` int(11) NOT NULL,
-  `plant_id` int(11) NOT NULL
+  `plant_id` int(11) NOT NULL,
+  `quantity` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `favourites`
+--
+
+INSERT INTO `favourites` (`fav_id`, `cust_id`, `plant_id`, `quantity`) VALUES
+(6, 7, 8, NULL),
+(7, 7, 8, 1),
+(8, 7, 8, 1),
+(9, 7, 8, 1),
+(10, 7, 3, 3),
+(11, 7, 3, 2),
+(12, 7, 1, 5),
+(13, 8, 1, 2),
+(14, 7, 1, 1),
+(15, 7, 1, 5),
+(16, 7, 1, 2),
+(17, 8, 10, 2),
+(18, 7, 10, 4);
 
 -- --------------------------------------------------------
 
@@ -84,7 +104,8 @@ INSERT INTO `plant` (`id`, `name`, `description`, `price`, `Category_id`, `image
 (3, 'Conifer Shrubs', 'Conifers are defined as a type of tree that produces cones. Typically evergreen. they all have needles or scale-like leaves, and there are a few deciduous conifers out there, namely larch or Larix spp. or dawn redwood, Metasequoia glyptostroboides.', 20, 2, 'uploads/plant_6732bb424809a3.28270741.jpeg'),
 (5, 'Levender', 'Lavandula is a genus of 47 known species of perennial flowering plants in the mints family, Lamiaceae. It is native to the Old World, primarily found across the drier, warmer regions of mainland Eurasia, with an affinity for maritime breezes', 10.99, 12, 'uploads/lovandar.webp'),
 (7, 'strawberry ', 'Arbutus unedo, commonly known as strawberry tree, is an evergreen shrub or small tree in the family Ericaceae, native to the Mediterranean Basin and Western Europe. The tree is well known for its fruits, the arbutus berry, which bear some resemblance to the strawberry, hence the common name strawberry tree', 35, 9, 'uploads/plant_673acf0cbeda53.59631252.jpeg'),
-(8, 'Apple', 'An apple is a round, edible fruit produced by an apple tree (Malus spp., among them the domestic or orchard apple; Malus domestica).', 57, 9, 'uploads/plant_673ad0781fe9a7.57307169.jpeg');
+(8, 'Apple', 'An apple is a round, edible fruit produced by an apple tree (Malus spp., among them the domestic or orchard apple; Malus domestica).', 57, 9, 'uploads/plant_673ad0781fe9a7.57307169.jpeg'),
+(10, 'Peppermint', 'The peppermint plant and its many parts are used throughout the world in many different ways and for diverse purposes. The production of peppermint oil by distillation of the cultivated herb is an extensive industry in the United States and around the world. Cultivation of the plant is required because the plants found in the wild are not suitable for the distillation process and the cultivated plants contain much more and better quality oil. The United States is the leading producer of peppermint oil in the world, with Michigan, California, Washington, Oregon, Idaho, Indiana, and Wisconsin leading the way. Peppermint oil is used as a flavouring agent in many different products including decongestants, mouthwashes, chewing gum, toothpastes, and other mint flavoured candies and breath-freshening products. Peppermint oil can cause burning and gastrointestinal upset in some people. Peppermint tea, made from the dry leaves of the peppermint plant, is considered safer than peppermint oil for regular consumption. Peppermint tea has antiseptic properties and is considered a stimulant. It is effective in treating digestive pains caused by gas, colic, gallstones, gingivitis, irritable bowel syndrome, morning sickness, headaches, sore throats, common colds, fevers, insomnia, nervous tension, and it may also increase flow of bile from the gallbladder.', 50, 11, 'uploads/plant_67465a2cd3ed17.27032434.jpeg');
 
 -- --------------------------------------------------------
 
@@ -103,7 +124,10 @@ CREATE TABLE `stock` (
 --
 
 INSERT INTO `stock` (`id`, `plant_id`, `quantity`) VALUES
-(2, 8, 3);
+(2, 8, 0),
+(4, 3, 35),
+(5, 1, 45),
+(6, 10, 24);
 
 -- --------------------------------------------------------
 
@@ -122,8 +146,7 @@ CREATE TABLE `tbl_admin` (
 --
 
 INSERT INTO `tbl_admin` (`admin_id`, `username`, `password`) VALUES
-(1, 'admin', 'admin@123'),
-(2, 'admin1', '$2y$10$K5uloGAnlnKR1Lzgb2F0wOfKg4HC89cSFeBCR9si9765vHrPKJKRm');
+(1, 'admin', 'admin@123');
 
 -- --------------------------------------------------------
 
@@ -143,9 +166,8 @@ CREATE TABLE `tbl_login` (
 --
 
 INSERT INTO `tbl_login` (`Login_id`, `Cust_id`, `Username`, `password`) VALUES
-(1, 5, 'Bal', NULL),
-(2, 1, 'Bhoomi@123', NULL),
-(3, 7, 'abc', '$2y$10$eqkKSw2zbax4MlYDnEQmdukFdm037sQpYxSoDWCeBBdfrWhhSkfZy');
+(3, 7, 'abc', '$2y$10$eqkKSw2zbax4MlYDnEQmdukFdm037sQpYxSoDWCeBBdfrWhhSkfZy'),
+(4, 8, 'Ammu', '$2y$10$VF4wec6UBQGzeQ4LSag4r.lbX2ilksoiT7D8AeKnhpWDF.xd.Heiq');
 
 -- --------------------------------------------------------
 
@@ -164,12 +186,8 @@ CREATE TABLE `tbl_registration` (
 --
 
 INSERT INTO `tbl_registration` (`Cust_id`, `email`, `phone`) VALUES
-(1, 'bhoomipatel381@gmail.com', NULL),
-(2, 'd5464266@gmail.com', NULL),
-(3, 'aditi@gmail.com', NULL),
-(4, 'anu@gmail.com', NULL),
-(5, 'bal@gmail.com', NULL),
-(7, 'a@gmail.com', 2147483647);
+(7, 'a@gmail.com', 2147483647),
+(8, 'ammu@gmail.com', 1234567890);
 
 --
 -- Indexes for dumped tables
@@ -240,37 +258,37 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `favourites`
 --
 ALTER TABLE `favourites`
-  MODIFY `fav_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `fav_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `plant`
 --
 ALTER TABLE `plant`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `stock`
 --
 ALTER TABLE `stock`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_login`
 --
 ALTER TABLE `tbl_login`
-  MODIFY `Login_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Login_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_registration`
 --
 ALTER TABLE `tbl_registration`
-  MODIFY `Cust_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Cust_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
