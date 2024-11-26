@@ -62,6 +62,9 @@ $result = mysqli_query($conn, $query);
                     <li class="nav-item">
                         <a class="nav-link" href="view_stock.php">View Stocks</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php">Logout</a>
+                    </li>
                 </ul>
             </div>
         </div>

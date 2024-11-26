@@ -54,16 +54,19 @@ if (!$result) {
                         <a class="nav-link" href="view_categories.php">View Categories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="add_plant.php">Plants</a>
+                        <a class="nav-link" href="add_plant.php">Add Plants</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="view_plants.php">View Plants</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="add_stock.php">Stocks</a>
+                        <a class="nav-link" href="add_stock.php">Add Stocks</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="view_stock.php">View Stocks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php">Logout</a>
                     </li>
                 </ul>
             </div>

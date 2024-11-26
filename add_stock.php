@@ -92,6 +92,9 @@ if (isset($_POST['update_stock'])) {
                     <li class="nav-item">
                         <a class="nav-link" href="view_stock.php">View Stocks</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php">Logout</a>
+                    </li>
                 </ul>
             </div>
         </div>
